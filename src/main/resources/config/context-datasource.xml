@@ -29,7 +29,6 @@
         <constructor-arg index="0" ref="sqlSessionFactory"/>
     </bean>
 
-    <!-- 수동으로 Dao를 만들지 않으면 sqlsession 설정을 제거하고 아래 MapperScannerConfigurer 추가 -->
 <!--    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
 <!--        <property name="basePackage" value="classpath:/mapper/" />-->
 <!--    </bean>-->
