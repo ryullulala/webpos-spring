@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class Dispatcher {
 
-    @RequestMapping("/menu")
-    public String Menu() {
-        return "menu";
+    @RequestMapping("/index")
+    public String Index() {
+        return "index";
     }
+    @RequestMapping("/menu")
+    public String Menu() { return "menu"; }
 }

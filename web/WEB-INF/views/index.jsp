@@ -16,7 +16,8 @@
   <div id="webView">
 
     <div id="rightMenuBar" style="text-align: right; margin-right: 20px; margin-top: 50px">
-      <a href="loginPage.jsp" style="font-size: 18px; font-weight: bold; color: rgb(41, 128, 185) ">로그인  |</a>
+      <!-- test 용으로 a href 주소 변경-->
+      <a href="/menu" style="font-size: 18px; font-weight: bold; color: rgb(41, 128, 185) ">로그인  |</a>
       <a href="signup.jsp" style="font-size: 18px; font-weight: bold; color: rgb(41, 128, 185)">회원가입</a>
     </div>
 
