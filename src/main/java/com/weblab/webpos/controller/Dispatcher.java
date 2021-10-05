@@ -16,4 +16,14 @@ public class Dispatcher {
     }
     @RequestMapping("/menu")
     public String Menu() { return "menu"; }
+    @RequestMapping("/loginPage")
+    public String loginPage() { return "loginPage"; }
+    @RequestMapping("/signUp")
+    public String signUp() { return "signup"; }
+    @RequestMapping("/loginedHome")
+    public String loginedHome() { return "loginedHome"; }
+    @RequestMapping("/posMain")
+    public String posMain() { return "posMain"; }
+    @RequestMapping("/test")
+    public String test() { return "test"; }
 }

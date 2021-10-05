@@ -1,0 +1,54 @@
+table.type11 {
+    border-collapse: separate; border-spacing: 1px; text-align: center; line-height: 1.5; margin: 20px 10px;
+    position: absolute;
+    height: 380px;
+    top: 50px;
+    border-spacing: 10px;
+
+
+}
+
+table.type11 td {
+    width: 155px; padding: 10px; vertical-align: center;
+    border-bottom: 1px solid #ccc; background: white;
+    border-radius: 1rem;
+
+}
+
+.viewTitle{
+    position: absolute;
+    width: inherit;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    top: 15px;
+}
+
+.buttonView {
+    position: absolute;
+    width: inherit;
+    height: fit-content;
+    text-align: center;
+    top: 450px;
+}
+
+
+button{
+    background-color: lightskyblue;
+    border: none;
+    width: 125px;
+    height: 45px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+#menuBar{
+    position: absolute; top: 27px; left: 49px; width: 800px; height: 26px;
+}
+
+span{
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}

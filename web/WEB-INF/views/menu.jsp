@@ -69,7 +69,7 @@
 
                     <tbody>
                     <tr>
-                        <td onclick="fetchPage('test.jsp')">내용
+                        <td onclick="fetchPage('/test')">내용
                         </td><td>내용
                     </td><td>내용
                     </td></tr>

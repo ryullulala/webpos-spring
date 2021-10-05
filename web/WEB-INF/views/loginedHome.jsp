@@ -43,7 +43,7 @@
                 <tr>
                     <th scope="row" >가게명</th>
                     <td>
-                        <button onclick="location.href='posMain.jsp' ">선택</button>
+                        <button onclick="location.href='/posMain'">선택</button>
                     </td>
                 </tr>
                 <tr>
