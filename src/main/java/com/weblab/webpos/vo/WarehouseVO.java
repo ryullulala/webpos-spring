@@ -1,4 +1,4 @@
-package com.weblab.webpos.entity;
+package com.weblab.webpos.vo;
 
 import lombok.Getter;
 
