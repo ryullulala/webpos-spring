@@ -13,9 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class Dispatcher {
 
-    @Autowired
-    private MenuDAO menuDAO;
-
     @RequestMapping("/index")
     public String Index() {
         return "index";
