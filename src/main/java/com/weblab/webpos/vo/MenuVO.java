@@ -1,8 +1,9 @@
 package com.weblab.webpos.vo;
 
 import lombok.Getter;
+import lombok.Setter;
 
-@Getter
+@Getter @Setter
 public class MenuVO {
     private int store_id;
     private int category_id;

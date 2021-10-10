@@ -1,5 +1,8 @@
 package com.weblab.webpos.mapper;
 
+import org.apache.ibatis.annotations.Select;
+
 public interface MenuDAO {
-    String getCategory(int store_id) throws Exception;
+    @Select("Select now()")
+    public String getTime();
 }

@@ -2,13 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
+
+    <mybatis-spring:scan base-package="com.weblab.webpos.mapper"/>
 
 
-    <!-- 특정 패키지안의 클래들을 스캔하고, annotation을 확인 후 빈을 생성한다.  -->
-    <context:component-scan base-package="com.weblab.webpos.mapper"/>
-
-    <!-- 커넥션 풀 빈 생성 -->
     <context:property-placeholder location="classpath:/config/db.properties"/>
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="${db.driverClassName}"/>
@@ -20,18 +19,5 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="configLocation" value="classpath:/config/mybatis-config.xml"/>
-        <property name="mapperLocations" value="classpath:/mapper/**/*_mapper.xml" />
     </bean>
-
-    <!-- 수동으로 Dao를 만들지 않으면 sqlsession 설정을 제거하고 아래 MapperScannerConfigurer 추가 -->
-<!--    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">-->
-<!--        <constructor-arg index="0" ref="sqlSessionFactory"/>-->
-<!--    </bean>-->
-
-
-    <!-- mapper클래스 경로 -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="classpath:/mapper/" />
-    </bean>
-
 </beans>

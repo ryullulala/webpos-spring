@@ -1,10 +1,11 @@
 package com.weblab.webpos.vo;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
-@Getter
+@Getter @Setter
 public class WarehouseVO {
     private int user_id;
     private int ingredient_id;

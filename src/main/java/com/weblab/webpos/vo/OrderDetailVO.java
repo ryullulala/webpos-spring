@@ -1,8 +1,9 @@
 package com.weblab.webpos.vo;
 
 import lombok.Getter;
+import lombok.Setter;
 
-@Getter
+@Getter @Setter
 public class OrderDetailVO {
     private int order_id;
     private int order_status;
