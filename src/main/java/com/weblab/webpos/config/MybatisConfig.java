@@ -8,10 +8,9 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
-//@EnableTransactionManagement
 @Configuration
-@MapperScan(basePackages = {"com.weblab.webpos.mapper"}
-)
+@MapperScan(basePackages = {"com.weblab.webpos.mapper"})
+//@EnableTransactionManagement
 public class MybatisConfig {
 
     @Bean

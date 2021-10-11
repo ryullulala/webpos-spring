@@ -9,13 +9,12 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
 @Configuration
-@EnableTransactionManagement
 @PropertySource("classpath:config/db.properties")
+//@EnableTransactionManagement
 public class DatabaseConfig {
 
     @Value("${db.driverClassName}")
@@ -48,3 +47,5 @@ public class DatabaseConfig {
     }
 
 }
+
+
