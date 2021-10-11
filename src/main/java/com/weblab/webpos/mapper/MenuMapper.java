@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 @Repository
-public interface MenuDAO {
+public interface MenuMapper {
 
     @Select("select sysdate from dual")
     String getTime();
