@@ -13,4 +13,4 @@ target/
 .DS_Store
 
 # database #
-src/main/resources/config/db.script
+src/main/resources/config/*.sql

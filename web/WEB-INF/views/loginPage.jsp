@@ -19,7 +19,7 @@
                 <div id="signText">SIGN IN</div>
             </div>
             <div id="userInfoDiv">
-                <form method="get" action="/loginedHome">
+                <form method="post" action="/login">
                     <input class="userInfo" type="text" name="user_id" value="아이디" onfocus="this.value= '' "; >
                     <input class="userInfo" type="password" name="user_pw" value="비밀번호"  onfocus="this.value= '' ";><br>
                     <input class="buttons" type="submit" value = "LOGIN"  ><br>

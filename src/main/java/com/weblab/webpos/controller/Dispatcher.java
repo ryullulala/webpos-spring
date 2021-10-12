@@ -1,58 +1,45 @@
 package com.weblab.webpos.controller;
 
-import com.weblab.webpos.mapper.MenuMapper;
-import com.weblab.webpos.service.MenuService;
+import com.weblab.webpos.service.LoginService;
 import com.weblab.webpos.service.SignUpService;
 import com.weblab.webpos.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 
 @Controller
 public class Dispatcher {
 
     @Autowired
-    MenuService menuService;
-    @Autowired
     SignUpService signUpService;
+    @Autowired
+    LoginService loginService;
 
-    @RequestMapping("/index")
+    @RequestMapping("/")
     public String Index() {
         return "index";
     }
 
-    @RequestMapping("/menu")
-    public String Menu() {
-        System.out.println(menuService.getTime());
-        return "menu";
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(UserVO userVO, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        UserVO res = loginService.login(userVO);
+
+        if(res!=null) {
+            session.setAttribute("res", res);
+            return "redirect:/loginedHome";
+        } else return "redirect:/loginPage";
     }
-
-    @RequestMapping("/loginPage")
-    public String loginPage() { return "loginPage"; }
-
-    @RequestMapping("/signUp")
-    public String signUp() { return "signup"; }
-
-    @RequestMapping("/loginedHome")
-    public String loginedHome() { return "loginedHome"; }
-
-    @RequestMapping("/posMain")
-    public String posMain() { return "posMain"; }
 
     @RequestMapping("/regist")
     public String test(UserVO user) {
-        //UserVO user = new UserVO();
         Date date = new Date();
-//        user.setStore_id(1);
-//        user.setUser_id("2");
-//        user.setUser_pw("1");
-//        user.setUser_birth(date);
-//        user.setUser_gender(1);
-//        user.setUser_phone(01011111111);
-//        user.setUser_name("1");
-//        user.setUser_email("1");
+        // 임시로 모든 회원가입의 가게는 1로 설정
         user.setStore_id(1);
         user.setUser_id(user.getUser_id());
         user.setUser_pw(user.getUser_pw());
@@ -63,6 +50,24 @@ public class Dispatcher {
         user.setUser_email(user.getUser_email());
         signUpService.registUser(user);
         return "index"; }
+
+    @RequestMapping("/menu")
+    public String Menu() {return "menu"; }
+
+
+    @RequestMapping("/loginPage")
+    public String loginPage() { return "loginPage"; }
+
+    @RequestMapping("/signUp")
+    public String signUp() { return "signup"; }
+
+    @RequestMapping("/loginedHome")
+    public String loginedHome(UserVO userVO) {
+        //System.out.println(loginService.getStoreList(userVO));
+        return "loginedHome"; }
+
+    @RequestMapping("/posMain")
+    public String posMain() { return "posMain"; }
 
 }
 
