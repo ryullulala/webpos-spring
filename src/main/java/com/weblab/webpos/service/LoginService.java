@@ -17,7 +17,7 @@ public class LoginService {
     public UserVO login(UserVO userVO) {
         return loginMapper.login(userVO);
     }
-    public UserVO getStoreList(UserVO userVO) {
+   /* public UserVO getStoreList(UserVO userVO) {
         return storeListMapper.getStoreList(userVO);
-    }
+    }*/
 }
