@@ -26,7 +26,7 @@
   <body>
   <div class="container">
 
-      <form class="well form-horizontal" action="index.jsp " method="post" id="contact_form">
+      <form class="well form-horizontal" action="/regist" method="post" id="contact_form">
           <fieldset>
 
               <!-- Form Name -->
@@ -48,7 +48,7 @@
                   <div class="col-md-4 inputGroupContainer">
                       <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                          <input name="user_password" placeholder="Password" class="form-control"  type="password">
+                          <input name="user_pw" placeholder="Password" class="form-control"  type="password">
                       </div>
                   </div>
               </div>
@@ -92,8 +92,9 @@
                       <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                           <select name="user_gender" class="form-control selectpicker">
-                              <option >남</option>
-                              <option >여</option>
+<%--                                임시로 바꿧습니다--%>
+                              <option >1</option>
+                              <option >2</option>
 
                           </select>
                       </div>
