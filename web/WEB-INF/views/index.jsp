@@ -17,7 +17,7 @@
 
     <div id="rightMenuBar" style="text-align: right; margin-right: 20px; margin-top: 50px">
       <a href="/loginPage" style="font-size: 18px; font-weight: bold; color: rgb(41, 128, 185) ">로그인  |</a>
-      <a href="/signUp" style="font-size: 18px; font-weight: bold; color: rgb(41, 128, 185)">회원가입</a>
+      <a href="/signup" style="font-size: 18px; font-weight: bold; color: rgb(41, 128, 185)">회원가입</a>
     </div>
 
     <div>

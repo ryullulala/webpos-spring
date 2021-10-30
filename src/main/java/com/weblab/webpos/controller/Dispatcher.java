@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
-@Controller
+@Controller 
 public class Dispatcher {
 
     @Autowired

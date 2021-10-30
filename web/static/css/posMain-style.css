@@ -1,6 +1,14 @@
 body {margin:0;padding:0;}
-#webView {overflow:hidden;position:relative;background:#FFFFFF;width:978px;height:600px;margin:0 auto;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
-#webView[data-show-memo='true'] {overflow:visible}
+#webView {
+    overflow:hidden;
+    position:relative;
+    background:#FFFFFF;
+    width:978px;
+    height:600px;
+    margin:0 auto;
+
+}
+
 
 #tableView{
     background-color: #cccccc;
@@ -24,7 +32,7 @@ table.todoTable th {
     font-weight: bold;
     vertical-align: top;
     color: black;
-    background: rgba(9,9,9,0.1) ;
+    background: rgba(9,9,9,0.1);
 }
 table.todoTable td {
     width: 155px;
@@ -38,10 +46,4 @@ span{
     font-weight: bold;
     cursor: pointer;
 }
-
-
-#menuBar{
-    position: absolute; top: 27px; left: 49px; width: 800px; height: 26px;
-}
-
 

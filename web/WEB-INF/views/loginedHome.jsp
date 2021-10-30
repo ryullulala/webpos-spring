@@ -30,34 +30,64 @@
     </div>
 
     <div  style="position: absolute; top: 458px; left: 475px; width: 100px; height: 40px;">
-        <button >매장 추가</button>
+        <button id="addBtn" onclick="location.href='addStorePage.jsp'">매장 추가</button>
     </div>
     <div style="position: absolute; top: 458px; left: 589px; width: 100px; height: 40px;">
-        <button >매장 수정</button>
+        <button id="updateBtn" onclick="updateBtnClick()">매장 수정</button>
     </div>
     <div  style="position: absolute; top: 458px; left: 699px; width: 100px; height: 40px;">
-        <button>매장 삭제</button>
+        <button id="deleteBtn" onclick="deleteBtnClick()">매장 삭제</button>
     </div>
         <div id="tableLayout" style="position: absolute;left: 180px;top: 200px;height: 200px;width: 600px;">
             <table class="type04">
                 <tr>
                     <th scope="row" >가게명</th>
                     <td>
-                        <button onclick="location.href='/posMain'">선택</button>
+                        <button class="selectBtn" onclick="location.href='posMain.jsp' ">선택</button>
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">가게명</th>
-                    <td><button>선택</button></td>
+                    <td><button class="selectBtn">선택</button></td>
                 </tr>
                 <tr>
                     <th scope="row">가게명</th>
-                    <td><button>선택</button></td>
+                    <td><button class="selectBtn">선택</button></td>
                 </tr>
             </table>
         </div>
 
-
 </div>
+    <script>
+        function updateBtnClick(){
+            var target = document.getElementsByClassName("selectBtn");
+
+            for (var i=0; i<target.length; i++){
+                console.log(target[i]);
+                target[i].innerHTML = "수정"
+                // 일단 임시로 매장 추가 화면으로 보내기 -> 이후에 매장 정보가 추가된 상태인 매장추가화면으로 수정해줄 것
+                <%--++ 각 매장별로 매장수정화면 다르게나오도록 href에 ${} 사용해서 설정할 것--%>
+                target[i].setAttribute("onclick","location.href='addStorePage.jsp'");
+            }
+
+        }
+
+        function deleteBtnClick(){
+            var target = document.getElementsByClassName("selectBtn");
+
+            for (var i=0; i<target.length; i++){
+                console.log(target[i]);
+                target[i].innerHTML = "삭제"
+
+                // onclick = "delete()"와 같은 형태로 삭제해주는 함수 작성해서 붙여줄 것
+                target[i].setAttribute("onclick","");
+            }
+
+        }
+
+
+    </script>
+
+
    </body>
 </html>
