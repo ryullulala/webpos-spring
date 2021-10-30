@@ -19,9 +19,8 @@ public class UserVO {
     private Date user_birth;
     private int user_gender;
     private String user_email;
-<<<<<<< HEAD
+
     private String user_phone;
-=======
-    private int user_phone;
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
+
+
 }

@@ -30,10 +30,8 @@
 </head>
 <body>
     <div id="webView" >
-<<<<<<< HEAD
+
         <jsp:include page="header.jsp"></jsp:include>
-=======
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
         <div id="addLayout" style="position: absolute; top: 68px; left: 98px; width: 306px; height: 428px; background-color: lightgray">
             <p>식자재 추가</p>
             <form>

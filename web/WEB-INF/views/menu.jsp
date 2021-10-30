@@ -106,116 +106,27 @@
                     <input id = "m-del" type ="button" class="button button-pill button-small button-primary" value="메뉴 삭제">
                 </div>
             </section>
-=======
-        <title>메뉴관리</title>
-        <link rel="stylesheet" href="/static/css/menu-style.css">
-        <style>
-            body {
-                margin:0;
-                padding:0;
-            }
-            #webView {overflow:hidden;position:relative;background:#FFFFFF;width:978px;height:638px;margin:0 auto;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
-            #webView[data-show-memo='true'] {overflow:visible}
-        </style>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    </head>
-
-    <body data-locale="ko" style="">
-        <div id="webView" >
-            <jsp:include page="header.jsp"></jsp:include>
-
-            <div id="menuListView" style="position: absolute; top: 85px; left: 486px; width: 474px; height: 506px; background-color: lightgray">
-                <div class ="viewTitle" style="position: absolute; ">메뉴 선택</div>
-                <table id = "menuTable" class="type11">
-
-                    <tbody>
-                    <tr>
-                        <td>내용
-                        </td><td>내용
-                    </td><td>내용
-                    </td></tr>
-                    <tr>
-                        <td>내용
-                        </td><td>내용
-                    </td><td>내용
-                    </td></tr>
-                    <tr>
-                        <td>내용
-                        </td><td>내용
-                    </td><td>내용
-                    </td></tr>
-                    </tbody>
-                </table>
-                <div class = "buttonView">
-                    <button>메뉴 추가</button>
-                    <button>메뉴 삭제</button>
-                    <button>메뉴 수정</button>
-                </div>
-            </div>
-
-        </div>
-            <div id="cateListView" style="position: absolute; top: 86px; left: 200px; width: 447px; height: 508px; background-color: lightgray">
-                <div class ="viewTitle" style="position: absolute; ">카테고리 선택</div>
-                <table id ="cateTable" class="type11">
-
-                    <tbody>
-                    <tr>
-                        <td onclick="fetchTable('test.jsp')">내용
-                        </td><td>내용
-                    </td><td>내용
-                    </td></tr>
-                    <tr>
-                        <td>내용
-                        </td><td>내용
-                    </td><td>내용
-                    </td></tr>
-                    <tr>
-                        <td>내용
-                        </td><td>내용
-                    </td><td>내용
-                    </td></tr>
-                    </tbody>
-                </table>
-                <div class = "buttonView">
-                    <button onclick="fetchPage('addCatePage.jsp')">카테고리 추가</button>
-                    <button>카테고리 삭제</button>
-                    <button>카테고리 수정</button>
-                </div>
-            </div>
-
-
-
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
         </div>
 
         <script>
             function fetchPage(name){
                 fetch(name).then(function(response){
                     response.text().then(function(text){
-<<<<<<< HEAD
-=======
-                        document.querySelector('body').innerHTML = text;
-                    })
-                });
-            }
-            function fetchTable(name){
-                fetch(name).then(function(response){
-                    response.text().then(function(text){
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
+
                         document.querySelector('table#menuTable').innerHTML = text;
                     })
                 });
             }
-<<<<<<< HEAD
+
 
         </script>
         <script type = "text/javascript">
             $(document).ready(function() {
                 
             })
-=======
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
+
+
         </script>
     </body>
 </html>

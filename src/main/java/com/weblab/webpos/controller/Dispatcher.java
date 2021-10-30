@@ -1,15 +1,12 @@
 package com.weblab.webpos.controller;
 
-<<<<<<< HEAD
 import com.weblab.webpos.service.AddStoreService;
 import com.weblab.webpos.service.LoginService;
 import com.weblab.webpos.service.SignUpService;
 import com.weblab.webpos.service.StoreListService;
 import com.weblab.webpos.vo.StoreVO;
-=======
-import com.weblab.webpos.service.LoginService;
-import com.weblab.webpos.service.SignUpService;
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
+
+
 import com.weblab.webpos.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,29 +15,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-<<<<<<< HEAD
+
 import java.util.ArrayList;
 import java.util.Date;
 
-@Controller
-=======
-import java.util.Date;
 
-@Controller 
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
+@Controller
 public class Dispatcher {
 
     @Autowired
     SignUpService signUpService;
     @Autowired
     LoginService loginService;
-<<<<<<< HEAD
+
     @Autowired
     AddStoreService addStoreService;
     @Autowired
     StoreListService storeListService;
-=======
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
 
     @RequestMapping("/")
     public String Index() {
@@ -48,7 +39,6 @@ public class Dispatcher {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-<<<<<<< HEAD
     public String login(UserVO userVO,StoreVO storeVO, HttpServletRequest request) {
         HttpSession session = request.getSession();
         UserVO res = loginService.login(userVO);
@@ -79,7 +69,7 @@ public class Dispatcher {
 
         return "loginedHome";
     }
-=======
+
     public String login(UserVO userVO, HttpServletRequest request) {
         HttpSession session = request.getSession();
         UserVO res = loginService.login(userVO);
@@ -89,7 +79,6 @@ public class Dispatcher {
             return "redirect:/loginedHome";
         } else return "redirect:/loginPage";
     }
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
 
     @RequestMapping("/regist")
     public String test(UserVO user) {
@@ -107,14 +96,10 @@ public class Dispatcher {
         return "index"; }
 
     @RequestMapping("/menu")
-<<<<<<< HEAD
     public String Menu(HttpServletRequest request) {
         HttpSession session = request.getSession();
 
         return "menu"; }
-=======
-    public String Menu() {return "menu"; }
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
 
 
     @RequestMapping("/loginPage")
@@ -125,16 +110,12 @@ public class Dispatcher {
 
     @RequestMapping("/loginedHome")
     public String loginedHome(UserVO userVO) {
-<<<<<<< HEAD
-=======
-        //System.out.println(loginService.getStoreList(userVO));
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
         return "loginedHome"; }
 
     @RequestMapping("/posMain")
     public String posMain() { return "posMain"; }
 
-<<<<<<< HEAD
+
 
     @RequestMapping("/groceryMain")
     public String groceryMain() { return "groceryMain"; }
@@ -149,7 +130,5 @@ public class Dispatcher {
     @RequestMapping("/salesPage")
     public String salesPage() { return "salesPage"; }
 
-=======
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
 }
 
