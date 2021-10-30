@@ -12,15 +12,11 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <spring.version>5.2.9.RELEASE</spring.version>
-<<<<<<< HEAD
-
         <java-version>1.8</java-version>
         <org.springframework-version>4.3.2.RELEASE</org.springframework-version>
         <org.aspectj-version>1.8.10</org.aspectj-version>
         <!-- 로깅 최신 버전 -->
         <org.slf4j-version>1.7.25</org.slf4j-version>
-=======
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
     </properties>
 
     <dependencies>
@@ -76,11 +72,10 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
+            <version>1.18.22</version>
             <scope>provided</scope>
         </dependency>
 
-<<<<<<< HEAD
         <!-- Test -->
         <dependency>
             <groupId>junit</groupId>
@@ -145,10 +140,6 @@
             <version>1.2</version>
         </dependency>
 
-
-
-=======
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
     </dependencies>
 
 </project>

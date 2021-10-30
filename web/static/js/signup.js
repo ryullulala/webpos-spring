@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
-// 아직 구현 덜 함!!
 
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
+// 아직 구현 덜 함!!
 $(document).ready(function() {
     $('#contact_form').bootstrapValidator({
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later

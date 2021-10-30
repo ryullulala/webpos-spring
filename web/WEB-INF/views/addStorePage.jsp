@@ -77,8 +77,6 @@
 
                         <input  name="store_phone" placeholder="051-000-0000" class="form-control"  type="text">
 
-                        <input  name="store_address" placeholder="051-000-0000" class="form-control"  type="text">
-
                     </div>
                 </div>
             </div>
@@ -102,16 +100,9 @@
                 </div>
             </div>
 
-
-
-
-
-<<<<<<< HEAD
-=======
             <!-- Success message -->
             <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
 
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
             <!-- Button -->
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
@@ -123,11 +114,8 @@
         </fieldset>
     </form>
 </div>
-<<<<<<< HEAD
 </div>
-=======
 </div><!-- /.container -->
->>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
 
 
 </body>
