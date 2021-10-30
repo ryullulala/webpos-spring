@@ -101,7 +101,15 @@ public class Dispatcher {
     @RequestMapping("/groceryMain")
     public String groceryMain() { return "groceryMain"; }
 
+    @RequestMapping("/addCatePage")
+    public String addCatePage() { return "addCatePage"; }
 
+    @RequestMapping("/addGroceryPage")
+    public String addGroceryPage() { return "addGroceryPage"; }
+
+
+    @RequestMapping("/salesPage")
+    public String salesPage() { return "salesPage"; }
 
 }
 

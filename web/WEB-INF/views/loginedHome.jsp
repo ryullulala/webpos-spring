@@ -49,7 +49,7 @@
                     <tbody>
                     <tr>
                         <td>${stores.store_name}</td>
-
+                        <td><button onclick="location.href = '/posMain'" >선택</button></td>
                         <td><button >상세 정보</button></td>
                         <td><button >수정</button></td>
                         <td><button >삭제</button></td>

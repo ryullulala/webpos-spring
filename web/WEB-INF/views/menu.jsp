@@ -11,18 +11,10 @@
         <title>메뉴관리 (11 of 17)</title>
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="mobile-web-app-capable" content="yes">
-<%--        <script async="" src="//www.google-analytics.com/analytics.js"></script>--%>
-<%--        <script src="/static/package/view-resource.min.js?1630042307762"></script>--%>
-<%--        <script>screenWidth = 978; projectId = "vJHjF2eaQsFippu0F5Mx0OCzC1R0jtF6"; sequenceId = "jiyWs";</script>--%>
-<%--        <style>--%>
-<%--            body {margin:0;padding:0;}--%>
-<%--            #webView {overflow:hidden;position:relative;background:#FFFFFF;width:978px;height:638px;margin:0 auto;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}--%>
-<%--            #webView[data-show-memo='true'] {overflow:visible}--%>
-<%--        </style>--%>
+
         <link rel="stylesheet" href="../../static/css/menu-style.css">  <%--css 연결--%>
         <link rel="stylesheet" href="../../static/css/buttons.css">  <%--css 연결--%>
-        <%--        <link href="/static/package/view.min.css?1630042307762" rel="stylesheet" type="text/css">--%>
-<%--        <script type="text/javascript" async="" src="https://m1.daumcdn.net/tiara/js/td.min.js"></script>--%>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><%--jquery 선언--%>
         <script src="../../static/js/menu.js"></script> <%--js 연결--%>
     </head>

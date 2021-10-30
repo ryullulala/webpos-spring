@@ -20,18 +20,11 @@
 
   <body data-locale="ko" style="">
     <div id="webView">
+      <jsp:include page="header.jsp"></jsp:include>
     <div id="tableView" data-obj-type="element" data-text-editable="true" class="" style="position: absolute; top: 92.5px; left: 22px; width: 579px; height: 470px;">
       <div data-text-content="true" style="background-color: rgb(224, 224, 224);"></div>
     </div>
 
-      <div id="menuBar" data-obj-type="element" data-text-editable="true" class="" style="">
-
-        <span onclick="location.href='posMain.jsp' " >POS  |</span>
-        <span>  매출관리  |</span>
-        <span onclick="location.href='/menu'">  메뉴관리  |</span>
-        <span>  테이블 위치 관리  |</span>
-        <span>  로그아웃</span>
-      </div>
       <div data-obj-id="jsOM6" data-obj-type="element" data-text-editable="true" class="" style="position: absolute; top: 108px; left: 36px; width: 70px; height: 20px;">
         <div data-text-content="true" style="background-color: rgb(255, 255, 255); text-align: center; text-decoration: none; border-width: 1px; border-style: solid; border-color: rgb(51, 51, 51);" class="">1번</div>
     </div>
