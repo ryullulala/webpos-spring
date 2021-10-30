@@ -12,6 +12,6 @@ public class SignUpService {
     SignUpMapper signUpMapper;
 
     public void registUser(UserVO userVO) {
-        signUpMapper.registUser(userVO);
+        signUpMapper.register(userVO);
     }
 }
