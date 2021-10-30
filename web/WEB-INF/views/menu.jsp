@@ -22,7 +22,7 @@
     <body data-locale="ko">
         <div id = "container">
             <header>
-                <h1>(id) 가게</h1>
+                <h1>${res.user_name} 가게</h1>
                 <nav>
                     <ul class="top-menu">
                         <li><a href="posMain">POS</a></li>

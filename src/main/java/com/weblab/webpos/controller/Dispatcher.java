@@ -81,7 +81,10 @@ public class Dispatcher {
         return "index"; }
 
     @RequestMapping("/menu")
-    public String Menu() {return "menu"; }
+    public String Menu(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+
+        return "menu"; }
 
 
     @RequestMapping("/loginPage")
