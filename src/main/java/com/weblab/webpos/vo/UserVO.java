@@ -19,5 +19,8 @@ public class UserVO {
     private Date user_birth;
     private int user_gender;
     private String user_email;
-    private int user_phone;
+
+    private String user_phone;
+
+
 }

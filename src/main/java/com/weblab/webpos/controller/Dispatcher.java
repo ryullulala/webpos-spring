@@ -1,7 +1,12 @@
 package com.weblab.webpos.controller;
 
+import com.weblab.webpos.service.AddStoreService;
 import com.weblab.webpos.service.LoginService;
 import com.weblab.webpos.service.SignUpService;
+import com.weblab.webpos.service.StoreListService;
+import com.weblab.webpos.vo.StoreVO;
+
+
 import com.weblab.webpos.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,9 +15,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import java.util.ArrayList;
 import java.util.Date;
 
-@Controller 
+
+@Controller
 public class Dispatcher {
 
     @Autowired
@@ -20,12 +28,48 @@ public class Dispatcher {
     @Autowired
     LoginService loginService;
 
+    @Autowired
+    AddStoreService addStoreService;
+    @Autowired
+    StoreListService storeListService;
+
     @RequestMapping("/")
     public String Index() {
         return "index";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(UserVO userVO,StoreVO storeVO, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        UserVO res = loginService.login(userVO);
+        ArrayList<StoreVO> stores = storeListService.getStoreList();
+
+
+        if(res!=null) {
+            session.setAttribute("res", res);
+            session.setAttribute("stores", stores);
+            return "redirect:/loginedHome";
+        } else return "redirect:/loginPage";
+    }
+    @RequestMapping("/addStorePage")
+    public String addStorePage() {
+        return "addStorePage";
+    }
+
+
+    @RequestMapping("/addStore")
+    public String addStorePage(StoreVO store) {
+
+        store.setStore_name(store.getStore_name());
+        store.setStore_address(store.getStore_address());
+        store.setStore_phone(store.getStore_phone());
+        store.setStore_category(store.getStore_category());
+        addStoreService.addStore(store);
+
+
+        return "loginedHome";
+    }
+
     public String login(UserVO userVO, HttpServletRequest request) {
         HttpSession session = request.getSession();
         UserVO res = loginService.login(userVO);
@@ -52,7 +96,10 @@ public class Dispatcher {
         return "index"; }
 
     @RequestMapping("/menu")
-    public String Menu() {return "menu"; }
+    public String Menu(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+
+        return "menu"; }
 
 
     @RequestMapping("/loginPage")
@@ -63,11 +110,25 @@ public class Dispatcher {
 
     @RequestMapping("/loginedHome")
     public String loginedHome(UserVO userVO) {
-        //System.out.println(loginService.getStoreList(userVO));
         return "loginedHome"; }
 
     @RequestMapping("/posMain")
     public String posMain() { return "posMain"; }
+
+
+
+    @RequestMapping("/groceryMain")
+    public String groceryMain() { return "groceryMain"; }
+
+    @RequestMapping("/addCatePage")
+    public String addCatePage() { return "addCatePage"; }
+
+    @RequestMapping("/addGroceryPage")
+    public String addGroceryPage() { return "addGroceryPage"; }
+
+
+    @RequestMapping("/salesPage")
+    public String salesPage() { return "salesPage"; }
 
 }
 

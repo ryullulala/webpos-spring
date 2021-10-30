@@ -23,6 +23,19 @@
     <link rel="stylesheet" href="/static/css/signUp-style.css" type="text/css">
 
 </head>
+
+
+
+<body>
+<div class="container">
+    <%request.setCharacterEncoding("UTF-8");%>
+
+    <form class="well form-horizontal" action="/addStore" method="post" id="storeInfo_form">
+        <fieldset>
+
+            <!-- Form Name -->
+            <legend><center><h2><b>${res.user_id}님 보유 매장 추가</b></h2></center></legend><br>
+
 <body>
 <div class="container">
 
@@ -31,6 +44,7 @@
 
             <!-- Form Name -->
             <legend><center><h2><b>보유 매장 추가</b></h2></center></legend><br>
+
 
             <!-- Text input-->
 
@@ -60,7 +74,11 @@
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+
+                        <input  name="store_phone" placeholder="051-000-0000" class="form-control"  type="text">
+
                         <input  name="store_address" placeholder="051-000-0000" class="form-control"  type="text">
+
                     </div>
                 </div>
             </div>
@@ -70,13 +88,14 @@
                 <div class="col-md-4 selectContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <select name="store_cate" class="form-control selectpicker">
+
+                        <select name="store_category" class="form-control selectpicker">
 <%--                            임시로 카테고리 설정부분 추가했습니다--%>
-                            <option >카페</option>
-                            <option >한식</option>
-                            <option >일식</option>
-                            <option >중식</option>
-                            <option >기타</option>
+                            <option value = "cafe">카페</option>
+                            <option value = "kor">한식</option>
+                            <option value="jap">일식</option>
+                            <option value="chi">중식</option>
+                            <option value="etc">기타</option>
 
                         </select>
                     </div>
@@ -87,9 +106,12 @@
 
 
 
+<<<<<<< HEAD
+=======
             <!-- Success message -->
             <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
 
+>>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
             <!-- Button -->
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
@@ -101,7 +123,11 @@
         </fieldset>
     </form>
 </div>
+<<<<<<< HEAD
+</div>
+=======
 </div><!-- /.container -->
+>>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
 
 
 </body>

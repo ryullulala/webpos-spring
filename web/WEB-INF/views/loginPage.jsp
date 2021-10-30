@@ -19,12 +19,15 @@
                 <div id="signText">SIGN IN</div>
             </div>
             <div id="userInfoDiv">
-                <form method="get" action="loginedHome.jsp">
+
+                <form method="post">
                     <input class="userInfo" type="text" name="user_id" value="아이디" onfocus="this.value= '' "; >
                     <input class="userInfo" type="password" name="user_pw" value="비밀번호"  onfocus="this.value= '' ";><br>
-                    <input class="buttons" type="submit" value = "LOGIN"  ><br>
-                    <input class="buttons" type="button" value="SIGN IN" >
+                    <input class="buttons" type="submit" value = "LOGIN"  formaction="/login"><br>
+                    <input class="buttons" type="submit" value="SIGN IN" formaction="/signUp">
                 </form>
+
+
 
             </div>
 
