@@ -19,9 +19,4 @@ public class MybatisConfig {
         sqlSessionFactory.setDataSource(dataSource);
         return sqlSessionFactory.getObject();
     }
-
-   /* @Bean
-    public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) {
-        return new SqlSessionTemplate(sqlSessionFactory);
-    }*/
 }
