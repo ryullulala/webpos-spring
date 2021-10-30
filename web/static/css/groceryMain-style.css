@@ -1,0 +1,84 @@
+body {margin:0;padding:0;}
+#webView {
+    overflow:hidden;
+    position:relative;
+    background:#FFFFFF;
+    width:978px;
+    height:800px;
+    margin:0 auto;
+
+}
+
+#tableView{
+    position: absolute;
+    left: 54px;
+    top: 126px;
+    width: 880px;
+    height: 370px;
+}
+
+#searchLayout{
+    position: absolute;
+    top: 76px;
+    left: 750px;
+    width: 188px;
+    height: 38px;
+}
+
+#sortSelectLayoutL{
+    position: absolute;
+    top: 75px;
+    left: 54px;
+    width: 150px;
+    height: 40px;
+
+}
+
+#sortSelectLayoutR{
+    position: absolute;
+    top: 75px;
+    left: 226px;
+    width: 150px;
+    height: 40px;
+}
+
+
+
+form {
+    width: 500px;
+}
+table {
+    border-collapse:collapse;
+    margin-bottom: 10px;
+    width: inherit;
+    height: inherit;
+}
+
+
+th, td {
+    padding: 3px 10px;
+}
+.off-screen {
+    display: none;
+}
+#nav {
+    width: fit-content;
+    text-align: center;
+    position: absolute;
+    left: 410px;
+
+}
+#nav a {
+    display: inline-block;
+    padding: 3px 5px;
+    margin-right: 10px;
+    font-family:Tahoma;
+    background: #ccc;
+    color: #000;
+    text-decoration: none;
+}
+#nav a.active {
+    background: #333;
+    color: #fff;
+}
+

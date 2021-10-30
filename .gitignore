@@ -1,0 +1,16 @@
+# java template #
+*.class
+
+
+# intelij #
+*.iml
+.idea
+out/
+target/
+
+
+# Mac OS ##
+.DS_Store
+
+# database #
+src/main/resources/config/*.sql

@@ -1,0 +1,49 @@
+<table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>사번</th>
+                    <th>이름</th>
+                    <th>업무</th>
+                    <th>입사일</th>
+                    <th>상세 정보</th>
+                    <th>수정</th>
+                    <th>삭제</th>
+                </tr>
+            </thead>
+            <c:forEach items="${empList}" var="emp">
+                <tbody>
+                    <tr>
+                        <td>${emp.empNo}</td>
+                        <td>${emp.eName}</td>
+                        <td>${emp.job}</td>
+                        <td>${emp.hireDate}</td>
+                        <td><button type="button" class="btn btn-default btn-xs empDetail">상세 정보</button></td>
+                        <td><button class="btn btn-default btn-xs empUpdate">수정</button></td>
+                        <td><button class="btn btn-default btn-xs empDelete">삭제</button></td>
+                    </tr>
+                </tbody>
+            </c:forEach>
+        </table>
+
+
+출처: https://songjihyeon.tistory.com/12 [머리 아닌 손으로, 기억 아닌 기록으로]
+
+
+ <div id="tableLayout" style="position: absolute;left: 180px;top: 200px;height: 200px;width: 600px;">
+            <table class="type04">
+                <tr>
+                    <th scope="row" >가게명</th>
+                    <td>
+                        <button onclick="location.href='/posMain'">선택</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">가게명</th>
+                    <td><button>선택</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">가게명</th>
+                    <td><button>선택</button></td>
+                </tr>
+            </table>
+        </div>

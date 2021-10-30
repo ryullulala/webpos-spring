@@ -1,0 +1,53 @@
+body {
+    margin:0;padding:0;
+}
+#webView {
+    overflow:hidden;
+    position:relative;
+    background:rgb(255, 255, 255);
+    width:978px;
+    height:600px;
+    margin:0 auto;
+    -webkit-transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0)
+}
+
+#textBar{
+    position: absolute;
+    top: 119px;
+    left: 339.006px;
+    width: 300px;
+    height: 48px;
+}
+
+#signText{
+    font-weight: bold;
+    font-size: 32px;
+    text-align: left;
+}
+
+#userInfoDiv{
+    position: absolute;
+    top: 184px;
+    left: 338.506px;
+    width: 299px;
+    height: 40px;
+}
+.userInfo{
+    color: rgb(94, 94, 94);
+    margin-bottom: 10px;
+    padding: 10px ;
+    width: 300px;
+}
+
+
+
+.buttons{
+    width: 300px;
+    height: 50px;
+    margin-top: 10px;
+    background-color: rgba(9,9,9,0.71);
+    color: white;
+
+
+}
