@@ -1,6 +1,19 @@
 body {margin:0;padding:0;}
+<<<<<<< HEAD
 #webView {overflow:hidden;position:relative;background:#FFFFFF;width:978px;height:600px;margin:0 auto;-webkit-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}
 #webView[data-show-memo='true'] {overflow:visible}
+=======
+#webView {
+    overflow:hidden;
+    position:relative;
+    background:#FFFFFF;
+    width:978px;
+    height:600px;
+    margin:0 auto;
+
+}
+
+>>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
 
 #tableView{
     background-color: #cccccc;
@@ -24,7 +37,11 @@ table.todoTable th {
     font-weight: bold;
     vertical-align: top;
     color: black;
+<<<<<<< HEAD
     background: rgba(9,9,9,0.1) ;
+=======
+    background: rgba(9,9,9,0.1);
+>>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
 }
 table.todoTable td {
     width: 155px;
@@ -39,9 +56,12 @@ span{
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 
 #menuBar{
     position: absolute; top: 27px; left: 49px; width: 800px; height: 26px;
 }
 
 
+=======
+>>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873

@@ -19,6 +19,7 @@
                 <div id="signText">SIGN IN</div>
             </div>
             <div id="userInfoDiv">
+<<<<<<< HEAD
                 <form method="post">
                     <input class="userInfo" type="text" name="user_id" value="아이디" onfocus="this.value= '' "; >
                     <input class="userInfo" type="password" name="user_pw" value="비밀번호"  onfocus="this.value= '' ";><br>
@@ -27,6 +28,15 @@
                 </form>
 
 
+=======
+                <form method="get" action="loginedHome.jsp">
+                    <input class="userInfo" type="text" name="user_id" value="아이디" onfocus="this.value= '' "; >
+                    <input class="userInfo" type="password" name="user_pw" value="비밀번호"  onfocus="this.value= '' ";><br>
+                    <input class="buttons" type="submit" value = "LOGIN"  ><br>
+                    <input class="buttons" type="button" value="SIGN IN" >
+                </form>
+
+>>>>>>> 3bf91712a7ab9d24011eacdd127cc908a12ec873
             </div>
 
         </div>
