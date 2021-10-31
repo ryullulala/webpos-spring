@@ -12,8 +12,6 @@ import java.util.List;
 @Repository
 public interface StoreListMapper {
 
-    @Select("SELECT * FROM \"Store\"")
+    @Select("SELECT * FROM \"Store\" WHERE \"user_id\"= 1")
     ArrayList<StoreVO> getStoreList();
-
-
 }
