@@ -10,4 +10,5 @@ public class StoreVO {
     private String store_address;
     private String store_phone;
     private String store_category;
+    private String user_id;
 }
