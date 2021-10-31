@@ -15,8 +15,6 @@ public class SignUpController {
     @RequestMapping("/regist")
     public String signUp(UserVO user) {
         //Date date = new Date();
-        // 임시로 모든 회원가입의 가게는 1로 설정
-        user.setStore_id(1);
         user.setUser_id(user.getUser_id());
         user.setUser_pw(user.getUser_pw());
         user.setUser_birth(user.getUser_birth());
