@@ -15,8 +15,6 @@ public class LoginController {
     @Autowired
     LoginService loginService;
 
-
-
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(UserVO userVO, HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -29,4 +27,10 @@ public class LoginController {
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() { return "loginPage"; }
+
+    @RequestMapping(value = "/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
+    }
 }

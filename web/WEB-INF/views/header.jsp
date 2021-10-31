@@ -22,6 +22,6 @@
     <span onclick="location.href='/menu'">  메뉴관리  |</span>
     <span>  테이블 위치 관리  |</span>
         <span onclick="location.href='/groceryMain'">  식자재 관리  |</span>
-    <span onclick="location.href='/'">  로그아웃 </span>
+    <span onclick="location.href='/logout'">  로그아웃 </span>
     </div>
 </body>
