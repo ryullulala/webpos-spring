@@ -59,7 +59,7 @@
                     </tbody>
                 </c:forEach>
             </table>
-            <button onclick="location.href ='/addStorePage'">매장 추가</button>
+            <button onclick="location.href ='/store/add'">매장 추가</button>
         </div>
 
 

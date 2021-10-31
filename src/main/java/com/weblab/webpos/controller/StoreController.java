@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 @Controller
 public class StoreController {
@@ -16,16 +17,20 @@ public class StoreController {
     @Autowired
     StoreService storeService;
 
-    @RequestMapping("/addStorePage")
+    @RequestMapping("/store/add")
     public String addStorePage() {
         return "addStorePage";
     }
 
     @RequestMapping(value="/store", method = RequestMethod.GET)
-    public String store() { return "loginedHome"; }
+    public String store(HttpSession session) {
+        ArrayList<StoreVO> stores = storeService.getStoreList();
+        session.setAttribute("stores", stores);
+        return "loginedHome";
+    }
 
     @RequestMapping(value="/store", method = RequestMethod.POST)
-    public String addStorePage(StoreVO store, HttpSession session) {
+    public String addStore(StoreVO store, HttpSession session) {
         UserVO userVO = (UserVO) session.getAttribute("res");
         store.setStore_name(store.getStore_name());
         store.setStore_address(store.getStore_address());

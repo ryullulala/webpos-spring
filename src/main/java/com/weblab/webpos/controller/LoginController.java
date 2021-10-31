@@ -18,18 +18,13 @@ public class LoginController {
 
     @Autowired
     LoginService loginService;
-    @Autowired
-    StoreService storeListService;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(UserVO userVO, HttpServletRequest request) {
         HttpSession session = request.getSession();
         UserVO res = loginService.login(userVO);
-        ArrayList<StoreVO> stores = storeListService.getStoreList();
-
         if(res!=null) {
             session.setAttribute("res", res);
-            session.setAttribute("stores", stores);
             return "redirect:/store";
         } else return "redirect:/loginPage";
     }
