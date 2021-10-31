@@ -5,6 +5,7 @@ import com.weblab.webpos.mapper.AddStoreMapper;
 import com.weblab.webpos.mapper.DeleteStoreMapper;
 import com.weblab.webpos.mapper.StoreListMapper;
 import com.weblab.webpos.vo.StoreVO;
+import com.weblab.webpos.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -20,8 +21,8 @@ public class StoreService {
     DeleteStoreMapper deleteStoreMapper;
 
     // 회원에 대한 가게 정보
-    public ArrayList<StoreVO> getStoreList() {
-        ArrayList<StoreVO> res = storeListMapper.getStoreList();
+    public ArrayList<StoreVO> getStoreList(UserVO userVO) {
+        ArrayList<StoreVO> res = storeListMapper.getStoreList(userVO);
         return res;
     }
 
