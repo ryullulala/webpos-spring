@@ -24,11 +24,9 @@
                     <input class="userInfo" type="text" name="user_id" value="아이디" onfocus="this.value= '' "; >
                     <input class="userInfo" type="password" name="user_pw" value="비밀번호"  onfocus="this.value= '' ";><br>
                     <input class="buttons" type="submit" value = "LOGIN"  formaction="/login"><br>
-                    <input class="buttons" type="submit" value="SIGN IN" formaction="/signUp">
                 </form>
-
-
-
+<%--                    GET 방식으로 /join을 접속해야 함으로 임시로 from 밖으로 뺌--%>
+                    <input class="buttons" type="submit" value="SIGN IN" onclick="location.href='/join'">
             </div>
 
         </div>

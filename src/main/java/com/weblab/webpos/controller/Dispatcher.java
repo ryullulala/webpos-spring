@@ -22,12 +22,6 @@ public class Dispatcher {
         HttpSession session = request.getSession();
         return "menu"; }
 
-    @RequestMapping("/loginPage")
-    public String loginPage() { return "loginPage"; }
-
-    @RequestMapping("/loginedHome")
-    public String loginedHome(UserVO userVO) {return "loginedHome"; }
-
     @RequestMapping("/posMain")
     public String posMain() { return "posMain"; }
 
@@ -43,7 +37,5 @@ public class Dispatcher {
     @RequestMapping("/salesPage")
     public String salesPage() { return "salesPage"; }
 
-    @RequestMapping("/signUp")
-    public String signUp() { return "signup";}
 }
 

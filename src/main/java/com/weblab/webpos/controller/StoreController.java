@@ -41,12 +41,9 @@ public class StoreController {
         storeService.addStore(store);
         return "redirect:/store";
     }
-
 //    @RequestMapping(value="/store", method = RequestMethod.DELETE)
 //    public String addStorePage(StoreVO store) {
 //
 //        return "loginedHome";
 //    }
-
-
 }
