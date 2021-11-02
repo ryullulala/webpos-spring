@@ -23,9 +23,8 @@ public class StoreController {
     }
 
     @RequestMapping(value="/store", method = RequestMethod.GET)
-    public String store(HttpSession session) {
-        UserVO userVO = (UserVO) session.getAttribute("res");
-        userVO.setUser_id(userVO.getUser_id());
+    public String store(UserVO userVO, HttpSession session) {
+        userVO = (UserVO) session.getAttribute("res");
         ArrayList<StoreVO> stores = storeService.getStoreList(userVO);
         session.setAttribute("stores", stores);
         return "loginedHome";
@@ -47,6 +46,4 @@ public class StoreController {
 //
 //        return "loginedHome";
 //    }
-
-
 }
