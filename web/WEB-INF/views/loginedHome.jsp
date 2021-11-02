@@ -27,7 +27,7 @@
             <div style="font-weight: bold; font-size: 24px; text-align: left; color: rgb(41, 128, 185);" onclick="location.href ='/' ">WEB POS </div>
         </div>
         <div style="position: absolute; top: 43.525px; left: 609px; width: 300px; height: 27px;">
-            <div style="font-weight: bold; font-size: 18px; text-align: center; color: rgb(52, 152, 219);" class="">내 정보 | 로그아웃</div>
+            <div style="font-weight: bold; font-size: 18px; text-align: center; color: rgb(52, 152, 219);" class="" onclick="location.href = '/logout' ">내 정보 | 로그아웃</div>
         </div>
 
     <div style="position: absolute; top: 118px; left: 196px; width: 519px; height: 54px;">

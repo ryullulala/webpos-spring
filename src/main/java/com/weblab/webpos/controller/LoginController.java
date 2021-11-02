@@ -1,17 +1,13 @@
 package com.weblab.webpos.controller;
 
 import com.weblab.webpos.service.LoginService;
-import com.weblab.webpos.service.StoreService;
-import com.weblab.webpos.vo.StoreVO;
 import com.weblab.webpos.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 
 @Controller
 public class LoginController {
@@ -26,6 +22,15 @@ public class LoginController {
         if(res!=null) {
             session.setAttribute("res", res);
             return "redirect:/store";
-        } else return "redirect:/loginPage";
+        } else return "loginPage";
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login() { return "loginPage"; }
+
+    @RequestMapping(value = "/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
     }
 }

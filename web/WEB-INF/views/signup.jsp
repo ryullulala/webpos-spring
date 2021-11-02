@@ -27,7 +27,7 @@
   <div class="container">
 
 
-      <form class="well form-horizontal" action="/regist" method="post" id="contact_form">
+      <form class="well form-horizontal" action="/join" method="post" id="contact_form">
 
           <fieldset>
 
