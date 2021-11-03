@@ -25,12 +25,12 @@
                 <h1>${res.user_name} 가게</h1>
                 <nav>
                     <ul class="top-menu">
-                        <li><a href="posMain">POS</a></li>
+                        <li><a href="/posMain">POS</a></li>
                         <li><a href="#">매출 관리</a></li>
-                        <li><a href="menu">매뉴 관리</a></li>
+                        <li><a href="/menu">매뉴 관리</a></li>
                         <li><a href="#">테이블 위치 관리</a></li>
                         <li><a href="#">식자재 관리</a></li>
-                        <li class="cut"><a href="#">로그아웃</a></li>
+                        <li class="cut"><a href="/logout">로그아웃</a></li>
                     </ul>
                 </nav>
             </header>
