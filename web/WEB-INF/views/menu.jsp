@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
     <head>
-<<<<<<< HEAD
+
         <title>메뉴관리 (11 of 17)</title>
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="mobile-web-app-capable" content="yes">
@@ -23,7 +23,7 @@
     <body data-locale="ko">
         <div id = "container">
             <header>
-                <h1>${res.user_name} 가게</h1>
+                <h1>${stores[0].store_name} 가게</h1>
                 <nav>
                     <ul class="top-menu">
                         <li><a href="posMain">POS</a></li>

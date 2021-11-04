@@ -67,7 +67,8 @@ public class Dispatcher {
         addStoreService.addStore(store);
 
 
-        return "loginedHome";
+
+        return "redirect:/loginedHome";
     }
 
     public String login(UserVO userVO, HttpServletRequest request) {
@@ -129,6 +130,16 @@ public class Dispatcher {
 
     @RequestMapping("/salesPage")
     public String salesPage() { return "salesPage"; }
+
+
+//포스메인에서 투두 상세보기하면 테이블 띄워주는 거 --> 데이터 반영하는 걸로 고쳐야함
+    @RequestMapping("/test2")
+    public String test() { return "test2"; }
+
+    @RequestMapping("/dragTest")
+    public String dragTest() { return "dragTest"; }
+
+
 
 }
 
