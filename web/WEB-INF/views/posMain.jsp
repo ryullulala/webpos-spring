@@ -20,6 +20,7 @@
 <div id="webView">
   <jsp:include page="header.jsp"></jsp:include>
   <div id="tableView" data-obj-type="element" data-text-editable="true" class="" style="position: absolute; top: 92.5px; left: 22px; width: 579px; height: 470px;">
+    ${sid}
 
 
   </div>

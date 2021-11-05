@@ -10,7 +10,7 @@
     <head>
 
 
-        <title>메뉴관리 (11 of 17)</title>
+        <title>메뉴관리</title>
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="mobile-web-app-capable" content="yes">
 
@@ -24,7 +24,8 @@
     <body data-locale="ko">
         <div id = "container">
             <header>
-                <h1>${stores[0].store_name} 가게</h1>
+
+                <h1>${id} 가게</h1>
                 <nav>
                     <ul class="top-menu">
                         <li><a href="posMain">POS</a></li>
@@ -109,16 +110,6 @@
             </section>
 
         </div>
-
-        <script>
-            function fetchPage(name){
-                fetch(name).then(function(response){
-                    response.text().then(function(text){
-
-                        document.querySelector('table#menuTable').innerHTML = text;
-                    })
-                });
-            }
 
 
         </script>
