@@ -17,14 +17,6 @@ public class Dispatcher {
         return "index";
     }
 
-    @RequestMapping("/menu")
-    public String Menu(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        return "menu"; }
-
-    @RequestMapping("/posMain")
-    public String posMain() { return "posMain"; }
-
     @RequestMapping("/groceryMain")
     public String groceryMain() { return "groceryMain"; }
 
