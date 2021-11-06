@@ -8,7 +8,7 @@ public class StoreVO {
     private int store_id;
     private String store_name;
     private String store_address;
-    private int store_phone;
+    private String store_phone;
     //private String store_category;
     private String user_id;
 }

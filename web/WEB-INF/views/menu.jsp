@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 <html>
     <head>
         <title>메뉴관리 (11 of 17)</title>
@@ -25,12 +28,12 @@
                 <h1>${res.user_name} 가게</h1>
                 <nav>
                     <ul class="top-menu">
-                        <li><a href="posMain">POS</a></li>
+                        <li><a href="/posMain">POS</a></li>
                         <li><a href="#">매출 관리</a></li>
-                        <li><a href="menu">매뉴 관리</a></li>
+                        <li><a href="/menu">매뉴 관리</a></li>
                         <li><a href="#">테이블 위치 관리</a></li>
                         <li><a href="#">식자재 관리</a></li>
-                        <li class="cut"><a href="#">로그아웃</a></li>
+                        <li class="cut"><a href="/logout">로그아웃</a></li>
                     </ul>
                 </nav>
             </header>
@@ -38,7 +41,7 @@
             <section class="category">
                 <h3 class="subtitle">카테고리</h3>
                 <div class="list">
-                    <input id="c-1" type = "button" value=" " class = "button button-3d button-box2">
+                    <input id="c-1" type = "button" value="${categories.category_name} " class = "button button-3d button-box2">
                 </div>
                 <div class="list">
                     <input id="c-2" type = "button" value=" " class = "button button-3d button-box2">
