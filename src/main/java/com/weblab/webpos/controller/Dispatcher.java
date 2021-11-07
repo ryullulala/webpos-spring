@@ -51,7 +51,8 @@ public class Dispatcher {
     @RequestMapping("/dragTest")
     public String dragTest() { return "dragTest"; }
 
-
+    @RequestMapping("/addCatePage")
+    public String addCatePage() { return "addCatePage"; }
 
 }
 

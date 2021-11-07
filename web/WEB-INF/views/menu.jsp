@@ -154,7 +154,7 @@
                             console.log(cInput);
 
                                 $.ajax({
-                                    url: "/category/${id}/add",
+                                    url: "/category/${id}",
                                     data: "category_name=" + cInput,
                                     type: "POST",
 

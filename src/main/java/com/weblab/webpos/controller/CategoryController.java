@@ -1,6 +1,6 @@
 package com.weblab.webpos.controller;
 
-import com.weblab.webpos.service.CategoryService;
+import com.weblab.webpos.service.MenuService;
 
 import com.weblab.webpos.vo.CategoryVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class CategoryController {
 
     @Autowired
-    CategoryService categoryService;
+    MenuService categoryService;
 
 
     @ResponseBody
-    @RequestMapping(value = "/category/{store_id}/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/category/{store_id}", method = RequestMethod.POST)
     public String addCategory(String category_name, CategoryVO categoryVO, @PathVariable int store_id) {
         categoryVO.setCategory_name(category_name);
         categoryVO.setCategory_id(store_id);

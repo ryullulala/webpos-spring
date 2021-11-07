@@ -9,12 +9,10 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 
 @Repository
-public class CategoryService {
+public class MenuService {
     @Autowired
     AddCategoryMapper categoryMapper;
-
-
-    // 가게 추가
+    
     public void addCategory(CategoryVO categoryVO) {
         categoryMapper.addCategory(categoryVO);
     }
