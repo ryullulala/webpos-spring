@@ -38,9 +38,9 @@
 
                     <form action="" id="setRows">
                         <p>
-                            showing
+                            한번에
                             <input type="text" name="rowPerPage" value="8">
-                            item per page
+                            개씩 보기
                         </p>
                     </form>
 
