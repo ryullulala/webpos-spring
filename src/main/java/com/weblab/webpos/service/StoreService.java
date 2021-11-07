@@ -25,6 +25,13 @@ public class StoreService {
         ArrayList<StoreVO> res = storeListMapper.getStoreList(userVO);
         return res;
     }
+    // 가게에 대한 가게 정보
+    public StoreVO getStore(String store_id) {
+        StoreVO storeVO = new StoreVO();
+        storeVO.setStore_id(Integer.parseInt(store_id));
+        StoreVO store = storeListMapper.getStore(storeVO);
+        return store;
+    }
 
     // 가게 추가
     public void addStore(StoreVO storeVO) {
