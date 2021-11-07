@@ -33,12 +33,7 @@ public class Dispatcher {
 
         return "posMain"; }
 
-    @RequestMapping("/groceryMain")
-    public String groceryMain() { return "groceryMain"; }
 
-
-    @RequestMapping("/addGroceryPage")
-    public String addGroceryPage() { return "addGroceryPage"; }
 
     @RequestMapping("/salesPage")
     public String salesPage() { return "salesPage"; }

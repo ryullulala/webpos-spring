@@ -48,7 +48,7 @@
 
                 </tr>
                 </thead>
-                <c:forEach items="${stores}" var="stores" varStatus="status">
+                <c:forEach items="${stores}" var="stores">
 
                     <tbody>
                     <tr>

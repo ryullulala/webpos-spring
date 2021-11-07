@@ -78,7 +78,7 @@
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 
                             <select name="store_category" class="form-control selectpicker">
-    <%--                            임시로 카테고리 설정부분 추가했습니다--%>
+
                                 <option value ="cafe">카페</option>
                                 <option value ="kor">한식</option>
                                 <option value="jap">일식</option>
