@@ -16,7 +16,6 @@ public class CategoryController {
     @Autowired
     MenuService categoryService;
 
-
     @ResponseBody
     @RequestMapping(value = "/category/{store_id}", method = RequestMethod.POST)
     public String addCategory(String category_name, CategoryVO categoryVO, @PathVariable int store_id) {

@@ -21,16 +21,12 @@ public class Dispatcher {
         return "index";
     }
 
-    @RequestMapping("/menu")
-    public String Menu(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        return "menu"; }
 
-    @RequestMapping(value = "/posMain/{id}",method = RequestMethod.GET)
-    public String posMain(HttpServletRequest request, @PathVariable int id) {
-        HttpSession session = request.getSession();
-        session.setAttribute("id",id);
-        return "posMain"; }
+//    @RequestMapping(value = "/posMain/{id}",method = RequestMethod.GET)
+//    public String posMain(HttpServletRequest request, @PathVariable int id) {
+//        HttpSession session = request.getSession();
+//        session.setAttribute("id",id);
+//        return "posMain"; }
 
     @RequestMapping("/groceryMain")
     public String groceryMain() { return "groceryMain"; }
