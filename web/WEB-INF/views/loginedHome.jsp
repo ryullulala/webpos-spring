@@ -12,7 +12,7 @@
 
 <html>
     <head>
-        <title>로그인 후 home 화면 (4 of 17)</title>
+        <title>로그인 후 home 화면</title>
 
         <link href="/static/css/loginedHome-style.css" rel="stylesheet" type="text/css">
 
@@ -43,15 +43,17 @@
                     <th>&nbsp;</th>
                     <th>&nbsp;</th>
                     <th>&nbsp;</th>
+                    <th>&nbsp;</th>
 
 
                 </tr>
                 </thead>
                 <c:forEach items="${stores}" var="stores">
+
                     <tbody>
                     <tr>
                         <td>${stores.store_name}</td>
-                        <td><button onclick="location.href = '/posMain/' + ${stores.store_id}" >선택</button></td>
+                        <td><button onclick="location.href = '/posMain/${stores.store_id}'" >선택</button></td>
                         <td><button >상세 정보</button></td>
                         <td><button >수정</button></td>
                         <td><button >삭제</button></td>

@@ -6,10 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
     <head>
         <title>식자재 관리 페이지</title>
         <link href="/static/css/groceryMain-style.css" type="text/css" rel="stylesheet">
+        <link href="/static/css/buttons.css" type="text/css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
 
@@ -36,9 +38,9 @@
 
                     <form action="" id="setRows">
                         <p>
-                            showing
+                            한번에
                             <input type="text" name="rowPerPage" value="8">
-                            item per page
+                            개씩 보기
                         </p>
                     </form>
 
@@ -46,83 +48,38 @@
                     <thead>
                     <tr>
                         <th>No.</th>
-                        <th>제조사</th>
                         <th>식자재명</th>
                         <th>남은수량</th>
                         <th>유통기한</th>
-                        <th>최근 주문날짜</th>
-                        <th>배송상태</th>
                     </tr>
                     </thead>
+                    <c:forEach items="${items}" var="items" varStatus="status">
+
                     <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>신라</td>
-                        <td>밀가루</td>
-                        <td>10개</td>
-                        <td>2021.10.20</td>
-                        <td>2021.10.11</td>
-                        <td>주문완료</td>
+                        <td>${status.count}</td>
+                        <td>${items.ingredient_name}</td>
+                        <td>${items.ingredient_qty}</td>
+                        <td>${items.expiration_date}</td>
 
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>life</td>
-                        <td>dish</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Clothing</td>
-                        <td>shocks</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Clothing</td>
-                        <td>sports</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>shoes</td>
-                        <td>nike</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>shoes</td>
-                        <td>addidas</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Bags</td>
-                        <td>backpack</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>Clothing</td>
-                        <td>Jacket</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>shoes</td>
-                        <td>bonie</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>Clothing</td>
-                        <td>Jacket</td>
-                    </tr>
+
                     </tbody>
+                    </c:forEach>
 
                 </table>
 
             </div>
-            <div id="addBtnLayout" style="position: absolute; top: 580px; left: 54px; width: 120px; height: 40px;">
-                <p>식자재 추가</p>
+            <div class="button button-pill button-small button-primary"
+                 id="addBtnLayout"
+                 style="position: absolute; top: 580px; left: 54px; " onclick="location.href='/addGroceryPage'">
+                식자재 추가
             </div>
-            <div id="deleteBtnLayout" style="position: absolute; top: 580px; left: 150px; width: 120px; height: 40px;">
-                <p>식자재 삭제</p>
+            <div class="button button-pill button-small button-primary" id="deleteBtnLayout" style="position: absolute; top: 580px; left: 200px;">
+                식자재 삭제
             </div>
-            <div id="orderBtnLayout" style="position: absolute; top: 580px; left: 500px; width: 120px; height: 40px;">
-                <p>주문</p>
+            <div class="button button-pill button-small button-primary" id="orderBtnLayout" style="position: absolute; top: 580px; left: 800px; ">
+                주문
             </div>
         </div>
 
@@ -133,7 +90,7 @@
                 e.preventDefault();
                 var rowPerPage = $('[name="rowPerPage"]').val() * 1;// 1 을  곱하여 문자열을 숫자형로 변환
 
-//		console.log(typeof rowPerPage);
+
 
                 var zeroWarning = 'Sorry, but we cat\'t display "0" rows page. + \nPlease try again.'
                 if (!rowPerPage) {
@@ -148,7 +105,7 @@
 
                 var $tr = $($products).find('tbody tr');
                 var rowTotals = $tr.length;
-//	console.log(rowTotals);
+
 
                 var pageTotal = Math.ceil(rowTotals/ rowPerPage);
                 var i = 0;
@@ -201,6 +158,11 @@
 
 
         </script>
+    <script>
+
+
+
+    </script>
 
 
 

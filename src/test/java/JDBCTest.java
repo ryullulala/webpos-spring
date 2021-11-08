@@ -19,7 +19,7 @@ public class JDBCTest {
     @Test
     public void connection() {
         try(Connection conn = DriverManager.getConnection(
-                "jdbc:oracle:thin:@localhost:1521/XEPDB1", "pos", "1234")) {
+                "jdbc:oracle:thin:@orcl_high?TNS_ADMIN=/Users/jueon/Downloads/Wallet_orcl", "POS_ADMIN", "Password1234")) {
             log.info(conn);
         } catch (Exception e) {
             fail(e.getMessage());

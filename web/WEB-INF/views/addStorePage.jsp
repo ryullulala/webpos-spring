@@ -27,6 +27,7 @@
 
 
 <body>
+
     <div class="container">
         <%request.setCharacterEncoding("UTF-8");%>
 
@@ -42,6 +43,7 @@
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                             <input  name="store_name" placeholder="매장 이름을 입력하세요." class="form-control"  type="text">
                         </div>
+
                     </div>
                 </div>
 
@@ -61,7 +63,9 @@
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 
+
                             <input  name="store_phone" placeholder="051-000-0000" class="form-control"  type="text">
+
 
                         </div>
                     </div>
@@ -74,7 +78,7 @@
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 
                             <select name="store_category" class="form-control selectpicker">
-    <%--                            임시로 카테고리 설정부분 추가했습니다--%>
+
                                 <option value ="cafe">카페</option>
                                 <option value ="kor">한식</option>
                                 <option value="jap">일식</option>
@@ -89,6 +93,7 @@
                 <!-- Success message -->
                 <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
 
+
                 <!-- Button -->
                 <div class="form-group">
                     <label class="col-md-4 control-label"></label>
@@ -96,6 +101,7 @@
                         <button>추가하기</button>
                     </div>
                 </div>
+
 
             </fieldset>
         </form>

@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Getter @Setter
 public class WarehouseVO {
-    private int user_id;
+    private int store_id;
     private int ingredient_id;
     private String ingredient_name;
     private int ingredient_qty;

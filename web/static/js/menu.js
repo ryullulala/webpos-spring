@@ -31,11 +31,14 @@ window.addEventListener("load", function() {
                 let cInput = prompt("카테고리 입력", "");
                 //alert(typeof cInput);
                 cAr[i].value = cInput;
+                console.log(cInput);
+
                 if(cAr[i].value == "") {
                     cAr[i].value = " ";
                     alert("공백을 넣을 수 없습니다.");
                     break;
                 }
+
                 cCount++;
                 break;
             } else {
@@ -43,6 +46,8 @@ window.addEventListener("load", function() {
                 break;
             }
         }
+
+
     }
 
 });
