@@ -20,6 +20,7 @@ public class Dispatcher {
     public String Index() {
         return "index";
     }
+
     @RequestMapping("/menu")
     public String Menu(HttpServletRequest request) {
         HttpSession session = request.getSession();
@@ -29,9 +30,13 @@ public class Dispatcher {
     public String posMain(HttpServletRequest request, @PathVariable int id) {
         HttpSession session = request.getSession();
         session.setAttribute("id",id);
-
-
         return "posMain"; }
+
+    @RequestMapping("/groceryMain")
+    public String groceryMain() { return "groceryMain"; }
+
+
+        
 
 
 
