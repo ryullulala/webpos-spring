@@ -1,54 +1,69 @@
 package com.weblab.webpos.controller;
 
 
-import com.weblab.webpos.vo.CategoryVO;
-import com.weblab.webpos.vo.UserVO;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 
 @Controller
+@RequestMapping("/pages")
 public class Dispatcher {
 
-    @RequestMapping("/")
-    public String Index() {
+    @GetMapping("/home")
+    public String homePage() {
         return "index";
     }
 
+    @GetMapping("/login")
+    public String loginPage() {
+        return "loginPage";
+    }
 
-//    @RequestMapping(value = "/posMain/{id}",method = RequestMethod.GET)
-//    public String posMain(HttpServletRequest request, @PathVariable int id) {
-//        HttpSession session = request.getSession();
-//        session.setAttribute("id",id);
-//        return "posMain"; }
+    @GetMapping("/logout")
+    public String logoutPage(HttpSession session) {
+        session.invalidate();
+        return "redirect:/pages/home";
+    }
 
-    @RequestMapping("/groceryMain")
-    public String groceryMain() { return "groceryMain"; }
+    @GetMapping("/stores")
+    public String storesPage() {
+        return "loginedHome";
+    }
+
+    @GetMapping("/store/add")
+    public String addStorePage() {
+        return "addStorePage";
+    }
+
+    @GetMapping("/groceryMain")
+    public String groceryMain() {
+        return "groceryMain";
+    }
+
+    @GetMapping("/salesPage")
+    public String salesPage() {
+        return "salesPage";
+    }
 
 
-        
-
-
-
-    @RequestMapping("/salesPage")
-    public String salesPage() { return "salesPage"; }
-
-
-//포스메인에서 투두 상세보기하면 테이블 띄워주는 거 --> 데이터 반영하는 걸로 고쳐야함
+    //포스메인에서 투두 상세보기하면 테이블 띄워주는 거 --> 데이터 반영하는 걸로 고쳐야함
     @RequestMapping("/test2")
-    public String test() { return "test2"; }
+    public String test() {
+        return "test2";
+    }
 
     @RequestMapping("/dragTest")
-    public String dragTest() { return "dragTest"; }
+    public String dragTest() {
+        return "dragTest";
+    }
 
     @RequestMapping("/addCatePage")
-    public String addCatePage() { return "addCatePage"; }
+    public String addCatePage() {
+        return "addCatePage";
+    }
 
 }
 

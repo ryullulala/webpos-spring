@@ -24,29 +24,7 @@ public class StoreController {
         session.setAttribute("store", storeVO);
         return "posMain"; }
 
-    @RequestMapping("/store/add")
-    public String addStorePage() {
-        return "addStorePage";
-    }
 
-    @RequestMapping(value="/store", method = RequestMethod.GET)
-    public String store(HttpSession session) {
-        UserVO userVO = (UserVO) session.getAttribute("res");
-        ArrayList<StoreVO> stores = storeService.getStoreList(userVO);
-        session.setAttribute("stores", stores);
-        return "loginedHome";
-    }
 
-    @RequestMapping(value="/store", method = RequestMethod.POST)
-    public String addStore(StoreVO store, HttpSession session) {
-        UserVO userVO = (UserVO) session.getAttribute("res");
-        store.setUser_id(userVO.getUser_id());
-        storeService.addStore(store);
-        return "redirect:/store";
-    }
-//    @RequestMapping(value="/store", method = RequestMethod.DELETE)
-//    public String addStorePage(StoreVO store) {
-//
-//        return "loginedHome";
-//    }
+
 }

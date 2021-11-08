@@ -1,24 +1,32 @@
 package com.weblab.webpos.controller;
 
 import com.weblab.webpos.service.LoginService;
+import com.weblab.webpos.service.StoreService;
+import com.weblab.webpos.vo.StoreVO;
 import com.weblab.webpos.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 @Controller
+@RequestMapping(value="/api")
 public class LoginController {
 
     @Autowired
     LoginService loginService;
+    @Autowired
+    StoreService storeService;
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public HashMap<String, Object> userLogin(@RequestParam("user_id") String id, @RequestParam("user_pw") String pw) {
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @ResponseBody
+    public HashMap<String, Object> userLogin(@RequestParam("user_id") String id, @RequestParam("user_pw") String pw, HttpSession session) {
         HashMap<String, Object> result = new HashMap<>();
 
         if (!"".equals(id) && !"".equals(pw)) {
@@ -27,10 +35,11 @@ public class LoginController {
             userVO.setUser_pw(pw);
             UserVO res = loginService.login(userVO);
             if (res != null) {
-                result.put("resultCode", 00000);
+                session.setAttribute("user", res);
+                result.put("resultCode", 1);
                 result.put("resultMessage", "로그인 성공");
             }else {
-                result.put("resultCode", 9999);
+                result.put("resultCode", 0);
                 result.put("resultMessage", "로그인 실패");
             }
         }else {
@@ -40,12 +49,15 @@ public class LoginController {
         return result;
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String login() { return "loginPage"; }
-
-    @RequestMapping(value = "/logout")
-    public String logout(HttpSession session) {
-        session.invalidate();
-        return "redirect:/";
+    @RequestMapping(value="/stores", method = RequestMethod.GET)
+    public ArrayList<StoreVO> getStores(HttpSession session) {
+        ArrayList<StoreVO> stores;
+        UserVO userVO = (UserVO) session.getAttribute("user");
+        stores = storeService.getStoreList(userVO);
+        return stores;
     }
+
+
+
+
 }
