@@ -13,37 +13,45 @@ import javax.servlet.http.HttpSession;
 @RequestMapping(value = "/", method = RequestMethod.GET)
 public class Dispatcher {
 
+    //메인 화면
     @GetMapping("/pages/home")
     public String homePage() {
         return "index";
     }
-
+    //로그인 화면
     @GetMapping("/pages/login")
     public String loginPage() {
         return "loginPage";
     }
-
+    //로그아웃 화면
     @GetMapping("/pages/logout")
     public String logoutPage(HttpSession session) {
         session.invalidate();
         return "redirect:/pages/home";
     }
-
+    //회원가입 화면
+    @GetMapping("/pages/join")
+    public String joinPage() { return "signup";}
+    //로그인 성공시 화면
     @GetMapping("/pages/stores")
     public String storesPage() {
         return "loginedHome";
     }
-
-    @GetMapping("/pages/store/add")
+    //가게 추가 화면
+    @GetMapping("/pages/stores/add")
     public String addStorePage() {
         return "addStorePage";
     }
 
+
+
+
+  /*  //식재료 화면
     @GetMapping("/pages/groceryMain")
     public String groceryMain() {
         return "groceryMain";
     }
-
+    //
     @GetMapping("/pages/salesPage")
     public String salesPage() {
         return "salesPage";
@@ -64,7 +72,7 @@ public class Dispatcher {
     @RequestMapping("/pages/addCatePage")
     public String addCatePage() {
         return "addCatePage";
-    }
+    }*/
 
 }
 

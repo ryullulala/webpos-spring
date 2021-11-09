@@ -1,4 +1,3 @@
-
 // 아직 구현 덜 함!!
 $(document).ready(function() {
     $('#contact_form').bootstrapValidator({

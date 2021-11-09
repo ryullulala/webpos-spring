@@ -1,14 +1,10 @@
 package com.weblab.webpos.service;
 
 import com.weblab.webpos.mapper.AddIngredientMapper;
-import com.weblab.webpos.mapper.SignUpMapper;
 import com.weblab.webpos.mapper.WarehouseItemsMapper;
-import com.weblab.webpos.vo.UserVO;
 import com.weblab.webpos.vo.WarehouseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 

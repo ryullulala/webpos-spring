@@ -22,7 +22,7 @@
 </head>
 <body>
 <div class="container">
-    <form class="well form-horizontal" action="/join" method="post" id="contact_form">
+    <form class="well form-horizontal" action="/api/join" method="post" id="contact_form">
         <fieldset>
             <!-- Form Name -->
             <legend>
@@ -125,7 +125,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4"><br>
-                    <button>가입하기</button>
+                    <button onclick="">가입하기</button>
                 </div>
             </div>
         </fieldset>

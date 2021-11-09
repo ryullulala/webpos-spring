@@ -10,6 +10,8 @@
 <head>
     <title>Title</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/addStore.js"></script>
+
 
 
     <!-- 합쳐지고 최소화된 최신 CSS -->
@@ -31,17 +33,17 @@
     <div class="container">
         <%request.setCharacterEncoding("UTF-8");%>
 
-        <form class="well form-horizontal" action="/store" method="post" id="storeInfo_form">
+        <form class="well form-horizontal" id="storeInfo_form">
             <fieldset>
                 <!-- Form Name -->
-                <legend><center><h2><b>${res.user_id}님 보유 매장 추가</b></h2></center></legend><br>
+                <legend><center><h2><b>${user.user_name}님 보유 매장 추가</b></h2></center></legend><br>
                 <!-- Text input-->
                 <div class="form-group">
                     <label class="col-md-4 control-label">매장 이름</label>
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input  name="store_name" placeholder="매장 이름을 입력하세요." class="form-control"  type="text">
+                            <input name="store_name" placeholder="매장 이름을 입력하세요." class="form-control"  type="text">
                         </div>
 
                     </div>
@@ -52,7 +54,7 @@
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input  name="store_address" placeholder="부산광역시 사상구 백양대로 00-00" class="form-control"  type="text">
+                            <input name="store_address" placeholder="부산광역시 사상구 백양대로 00-00" class="form-control"  type="text">
                         </div>
                     </div>
                 </div>
@@ -64,14 +66,14 @@
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 
 
-                            <input  name="store_phone" placeholder="051-000-0000" class="form-control"  type="text">
+                            <input name="store_phone" placeholder="051-000-0000" class="form-control"  type="text">
 
 
                         </div>
                     </div>
                 </div>
 
-                <div class="form-group">
+              <%--  <div class="form-group">
                     <label class="col-md-4 control-label">가게 업종</label>
                     <div class="col-md-4 selectContainer">
                         <div class="input-group">
@@ -88,21 +90,18 @@
                             </select>
                         </div>
                     </div>
-                </div>
+                </div>--%>
 
                 <!-- Success message -->
                 <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
-
 
                 <!-- Button -->
                 <div class="form-group">
                     <label class="col-md-4 control-label"></label>
                     <div class="col-md-4"><br>
-                        <button>추가하기</button>
+                        <button onclick=addStore()>추가하기</button>
                     </div>
                 </div>
-
-
             </fieldset>
         </form>
     </div><!-- /.container -->
