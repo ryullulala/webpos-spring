@@ -17,13 +17,11 @@ public class StoreService {
     StoreListMapper storeListMapper;
     @Autowired
     AddStoreMapper addStoreMapper;
-    @Autowired
-    DeleteStoreMapper deleteStoreMapper;
 
     // 회원에 대한 가게 정보
     public ArrayList<StoreVO> getStoreList(UserVO userVO) {
-        ArrayList<StoreVO> res = storeListMapper.getStoreList(userVO);
-        return res;
+        ArrayList<StoreVO> stores = storeListMapper.getStoreList(userVO);
+        return stores;
     }
     // 가게에 대한 가게 정보
     public StoreVO getStore(String store_id) {
@@ -32,12 +30,10 @@ public class StoreService {
         StoreVO store = storeListMapper.getStore(storeVO);
         return store;
     }
-
+/*
     // 가게 추가
     public void addStore(StoreVO storeVO) {
         addStoreMapper.addStore(storeVO);
-    }
+    }*/
 
-    // 가게 삭제
-//    public void deleteStore(StoreVO storeVO) { deleteStoreMapper.deleteStore(storeVO.); }
 }

@@ -5,17 +5,16 @@ import com.weblab.webpos.service.StoreService;
 import com.weblab.webpos.vo.StoreVO;
 import com.weblab.webpos.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-@Controller
+@RestController
 @RequestMapping(value="/api")
 public class LoginController {
 
@@ -25,7 +24,6 @@ public class LoginController {
     StoreService storeService;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    @ResponseBody
     public HashMap<String, Object> userLogin(@RequestParam("user_id") String id, @RequestParam("user_pw") String pw, HttpSession session) {
         HashMap<String, Object> result = new HashMap<>();
 
