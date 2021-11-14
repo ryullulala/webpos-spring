@@ -45,37 +45,26 @@
 
     <section class="category">
         <h3 class="subtitle">카테고리</h3>
-        <div class="list">
-            <input id="c-1" type="button" value="${categories.category_name} " class="button button-3d button-box2">
-        </div>
-        <div class="list">
-            <input id="c-2" type="button" value=" " class="button button-3d button-box2">
-        </div>
-        <div class="list">
-            <input id="c-3" type="button" value=" " class="button button-3d button-box2">
-        </div>
-        <div class="list">
-            <input id="c-4" type="button" value=" " class="button button-3d button-box2">
-        </div>
-        <div class="list">
-            <input id="c-5" type="button" value=" " class="button button-3d button-box2">
-        </div>
-        <div class="list">
-            <input id="c-6" type="button" value=" " class="button button-3d button-box2">
-        </div>
-        <div class="list">
-            <input id="c-7" type="button" value=" " class="button button-3d button-box2">
-        </div>
-        <div class="list">
-            <input id="c-8" type="button" value=" " class="button button-3d button-box2">
-        </div>
-        <div class="list">
-            <input id="c-9" type="button" value=" " class="button button-3d button-box2">
-        </div>
+        <c:forEach begin="1" end="9" var="i">
+
+            <div class="list">
+                <input id="c-${i}" type="button" value=" " class="button button-3d button-box2">
+            </div>
+
+
+        </c:forEach>
+        <c:forEach items="${categories}" var="category" varStatus="status">
+            <script>
+                $("#c-${status.count}").val("${category.category_name}")
+
+            </script>
+        </c:forEach>
+
         <div class="select">
             <input id="c-add" type="button" class="button button-pill button-small button-primary" value="카테고리 추가">
             <input id="c-fix" type="button" class="button button-pill button-small button-primary" value="카테고리 수정">
             <input id="c-del" type="button" class="button button-pill button-small button-primary" value="카테고리 삭제">
+
         </div>
     </section>
     <section class="menu">
@@ -113,6 +102,8 @@
             <input id="m-del" type="button" class="button button-pill button-small button-primary" value="메뉴 삭제">
         </div>
     </section>
+
+
 
 </div>
 

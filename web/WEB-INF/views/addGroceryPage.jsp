@@ -49,45 +49,7 @@
 
         </div>
 
-<%--        <div id="orderLayout" style="position: absolute; top: 68px; left: 539px; width: 306px; height: 428px; background-color: lightgray">--%>
-<%--            <p>주문하기</p>--%>
-<%--            <form>--%>
-<%--                <p>--%>
-<%--                    식자재 이름 <input type="text" >--%>
-<%--                </p>--%>
-<%--                <p>--%>
-<%--                    수량 <input type="text" >--%>
-<%--                </p>--%>
-<%--                <p>--%>
-<%--                    단위 <input type="text" >--%>
-<%--                </p>--%>
 
-<%--            </form>--%>
-
-<%--            <p>--%>
-<%--                제조사 : ---%>
-<%--            </p>--%>
-<%--            <p>--%>
-<%--                현재 날짜 :--%>
-<%--                <script>--%>
-<%--                    let today = new Date();--%>
-
-<%--                    let year = today.getFullYear(); // 년도--%>
-<%--                    let month = today.getMonth() + 1;  // 월--%>
-<%--                    let date = today.getDate();  // 날짜--%>
-
-
-<%--                    document.write(year + '/' + month + '/' + date)--%>
-<%--                    document.write('<br>')--%>
-
-<%--                </script>--%>
-<%--            </p>--%>
-<%--            <p>--%>
-<%--                <input type="submit" value="주문하기">--%>
-<%--                <button>닫기</button>--%>
-<%--            </p>--%>
-
-<%--        </div>--%>
 
     </div>
 

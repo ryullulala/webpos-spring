@@ -1,7 +1,11 @@
 package com.weblab.webpos.controller;
 
 
+import com.weblab.webpos.service.MenuService;
+import com.weblab.webpos.service.StoreService;
+import com.weblab.webpos.vo.CategoryVO;
 import com.weblab.webpos.vo.StoreVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,11 +13,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 
 
 @Controller
 @RequestMapping(value = "/", method = RequestMethod.GET)
 public class Dispatcher {
+    @Autowired
+    StoreService storeService;
+
+    @Autowired
+    MenuService menuService;
 
     //메인 화면
     @GetMapping("/pages/home")
@@ -47,7 +57,7 @@ public class Dispatcher {
 
     //가게 추가 화면
     @GetMapping("/pages/stores/add")
-    public String addStorePage(@PathVariable int store_id, HttpSession session) {
+    public String addStorePage(HttpSession session) {
         return "addStorePage";
     }
 
@@ -62,7 +72,11 @@ public class Dispatcher {
     }
 
     @GetMapping("/pages/menu/{store_id}")
-    public String menuPage(@PathVariable int store_id, HttpSession session) {
+    public String menuPage(@PathVariable String store_id, HttpSession session) {
+        String id = store_id;
+        StoreVO store = storeService.getStore(id);
+        ArrayList<CategoryVO> categoryList = menuService.getCategoryList(store);
+        session.setAttribute("categories", categoryList);
         return "menu";
     }
 
