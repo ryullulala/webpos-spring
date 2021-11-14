@@ -1,7 +1,6 @@
 package com.weblab.webpos.controller;
 
-import com.weblab.webpos.service.LoginService;
-import com.weblab.webpos.service.SignUpService;
+import com.weblab.webpos.service.UserService;
 import com.weblab.webpos.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +13,8 @@ import java.util.HashMap;
 public class UserController {
 
     @Autowired
-    LoginService loginService;
-    @Autowired
-    SignUpService signUpService;
+    UserService userService;
+
 
     //로그인 요청
     @GetMapping("/login")
@@ -27,11 +25,11 @@ public class UserController {
             UserVO userVO = new UserVO();
             userVO.setUser_id(id);
             userVO.setUser_pw(pw);
-            UserVO res = loginService.login(userVO);
+            UserVO res = userService.login(userVO);
             if (res != null) {
                 session.setAttribute("user", res);
-                    result.put("resultCode", 1);
-                    result.put("resultMessage", "로그인 성공");
+                result.put("resultCode", 1);
+                result.put("resultMessage", "로그인 성공");
             } else {
                 result.put("resultCode", 0);
                 result.put("resultMessage", "로그인 실패");
@@ -43,9 +41,10 @@ public class UserController {
         return result;
     }
 
-    // 회원가입 요청
-    @RequestMapping(value = "/join", method = RequestMethod.POST)
-    public String join(UserVO user) {
-        signUpService.registUser(user);
-        return "loginPage"; }
+//    // 회원가입 요청
+//    @PostMapping("/join")
+//    public String join(UserVO user) {
+//        userService.join(user);
+//        return "loginPage";
+//    }
 }

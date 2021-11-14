@@ -4,7 +4,6 @@ import com.weblab.webpos.service.StoreService;
 import com.weblab.webpos.vo.StoreVO;
 import com.weblab.webpos.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -35,13 +34,13 @@ public class StoreController {
         result.put("resultMessage", "매장 추가 성공");
         return result;
     }
-    @DeleteMapping("/stores")
-    public HashMap<String, Object> deleteStore(@RequestParam StoreVO storeVO) {
-        HashMap<String, Object> result = new HashMap<>();
-
-
-        return result;
-    }
+//    @DeleteMapping("/stores")
+//    public HashMap<String, Object> deleteStore(@RequestParam StoreVO storeVO) {
+//        HashMap<String, Object> result = new HashMap<>();
+//
+//
+//        return result;
+//    }
 
 //    @RequestMapping("/posMain/{id}")
 //    public String posMain(@PathVariable String id, HttpSession session) {

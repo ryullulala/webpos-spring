@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class LoginService {
+public class UserService {
 
     @Autowired
     UserMapper userMapper;
@@ -15,5 +15,8 @@ public class LoginService {
         return userMapper.login(userVO);
     }
 
+//    public void join(UserVO userVO) {
+//        userMapper.join(userVO);
+//    }
 
 }
