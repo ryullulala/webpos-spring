@@ -1,8 +1,10 @@
 package com.weblab.webpos.controller;
 
 
+import com.weblab.webpos.vo.StoreVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -37,6 +39,13 @@ public class Dispatcher {
     public String storesPage() {
         return "loginedHome";
     }
+
+    @GetMapping("/pages/pos/{store_id}")
+    public String posMainPage(@PathVariable int store_id, HttpSession session){
+        session.setAttribute("store_id", store_id);
+        return "posMain";
+    }
+
     //가게 추가 화면
     @GetMapping("/pages/stores/add")
     public String addStorePage() {

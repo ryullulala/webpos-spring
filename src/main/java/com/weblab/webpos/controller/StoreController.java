@@ -18,6 +18,8 @@ public class StoreController {
     @Autowired
     StoreService storeService;
 
+
+
     @GetMapping("/stores")
     public ArrayList<StoreVO> getStores(HttpSession session) {
         ArrayList<StoreVO> stores;

@@ -45,6 +45,26 @@
                 <th>&nbsp;</th>
             </tr>
             </thead>
+            <c:forEach items="${stores}" var="store">
+                <tbody>
+                <tr>
+                    <td id="store_id">${store.store_name}</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <button onclick='location.href="/pages/pos/"+${store.store_id}'>선택</button>
+                    </td>
+                    <td>
+                        <button>수정</button>
+                    </td>
+                    <td>
+                        <button>삭제</button>
+                    </td>
+
+                </tr>
+
+                </tbody>
+
+            </c:forEach>
             <tbody>
             </tbody>
         </table>
@@ -56,18 +76,11 @@
 <script type="text/template" id="tmpData">
     <tr>
         <td>{storeName}</td>
-        <td>
-            <button onclick='location.href="/pages/pos/"+{storeId}'>선택</button>
-        </td>
+
         <td>
             <button>상세 정보</button>
         </td>
-        <td>
-            <button>수정</button>
-        </td>
-        <td>
-            <button>삭제</button>
-        </td>
+
     </tr>
 </script>
 
