@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 
-@RestController
+@Controller
 @RequestMapping("/api")
 public class WarehouseController {
 
