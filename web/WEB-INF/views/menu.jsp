@@ -26,10 +26,11 @@
 </head>
 
 <body data-locale="ko">
+<%request.getSession();%>
 <div id="container">
     <header>
 
-        <h1>${id} 가게</h1>
+        <h1>${store_id} 가게</h1>
         <nav>
             <ul class="top-menu">
                 <li><a href="/posMain">POS</a></li>

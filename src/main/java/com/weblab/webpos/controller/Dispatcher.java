@@ -42,29 +42,34 @@ public class Dispatcher {
 
     @GetMapping("/pages/pos/{store_id}")
     public String posMainPage(@PathVariable int store_id, HttpSession session){
-        session.setAttribute("store_id", store_id);
         return "posMain";
     }
 
     //가게 추가 화면
     @GetMapping("/pages/stores/add")
-    public String addStorePage() {
+    public String addStorePage(@PathVariable int store_id, HttpSession session) {
         return "addStorePage";
     }
 
-
-
-
-  /*  //식재료 화면
-    @GetMapping("/pages/groceryMain")
-    public String groceryMain() {
+    @GetMapping("/pages/wareHouse/{store_id}")
+    public String groceryMain(@PathVariable int store_id, HttpSession session) {
         return "groceryMain";
     }
-    //
-    @GetMapping("/pages/salesPage")
-    public String salesPage() {
+
+    @GetMapping("/pages/sales/{store_id}")
+    public String salesPage(@PathVariable int store_id, HttpSession session) {
         return "salesPage";
     }
+
+    @GetMapping("/pages/menu/{store_id}")
+    public String menuPage(@PathVariable int store_id, HttpSession session) {
+        return "menu";
+    }
+
+  /*  //식재료 화면
+
+    //
+
 
 
     //포스메인에서 투두 상세보기하면 테이블 띄워주는 거 --> 데이터 반영하는 걸로 고쳐야함

@@ -18,11 +18,11 @@
 <%request.getSession();%>
 
     <div id="header" style="position: absolute; top: 27px; left: 49px; width: 800px; height: 26px;">
-    <span onclick="location.href='/posMain/${id}'"  >POS  |</span>
-    <span onclick="location.href='/salesPage'">  매출관리  |</span>
-    <span onclick="location.href='/menu'">  메뉴관리  |</span>
+    <span onclick="location.href='/pages/pos/${store_id}'"  >POS  |</span>
+    <span onclick="location.href='/pages/sales/${store_id}'">  매출관리  |</span>
+    <span onclick="location.href='/pages/menu/${store_id}'">  메뉴관리  |</span>
     <span>  테이블 위치 관리  |</span>
-        <span onclick="location.href='/wareHouse/${id}'">  식자재 관리  |</span>
+        <span onclick="location.href='/pages/wareHouse/${store_id}'">  식자재 관리  |</span>
     <span onclick="location.href='/logout'">  로그아웃 </span>
     </div>
 </body>
