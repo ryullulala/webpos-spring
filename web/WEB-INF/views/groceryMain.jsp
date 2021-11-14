@@ -13,6 +13,7 @@
         <link href="/static/css/groceryMain-style.css" type="text/css" rel="stylesheet">
         <link href="/static/css/buttons.css" type="text/css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     </head>
 
     <body>

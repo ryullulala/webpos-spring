@@ -13,7 +13,7 @@
         font-size: 18px;
     }
 </style>
-
+<script src="/static/js/getWarehouseItems.js" type="text/javascript"></script>
 <body>
 <%request.getSession();%>
 
@@ -22,7 +22,7 @@
     <span onclick="location.href='/pages/sales/${store_id}'">  매출관리  |</span>
     <span onclick="location.href='/pages/menu/${store_id}'">  메뉴관리  |</span>
     <span>  테이블 위치 관리  |</span>
-        <span onclick="location.href='/pages/wareHouse/${store_id}'">  식자재 관리  |</span>
+        <span name = "warehouseBtn" id="${store_id}" onclick="getWarehouseItems()">  식자재 관리  |</span>
     <span onclick="location.href='/logout'">  로그아웃 </span>
     </div>
 </body>
