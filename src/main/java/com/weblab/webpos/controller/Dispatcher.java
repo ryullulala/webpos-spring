@@ -23,7 +23,7 @@ public class Dispatcher {
     public String loginPage() {
         return "loginPage";
     }
-    //로그아웃 화면
+    //로그아웃
     @GetMapping("/pages/logout")
     public String logoutPage(HttpSession session) {
         session.invalidate();

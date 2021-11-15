@@ -1,16 +1,15 @@
 function addStore() {
-    // var test = {"store_name" : "adf",
-    //             "store_address" : "where",
-    //             "store_phone" : "112",
-    //             "user_id" : "ryul"}
-    var test = $("#storeInfo_form").serialize();
+    let serializedStore = $("#storeInfo_form").serialize()
+    console.log(serializedStore)
     $.ajax({
-        url : '/api/stores',
-        contentType : 'application/json',
-        method : 'POST',
-        data : JSON.stringify(test),
-        success : function () {
-            location.href = '/pages/stores'
+        url: '/api/stores',
+        contentType: 'application/json',
+        method: 'POST',
+        data: JSON.stringify(serializedStore),
+        statusCode: {
+            200: function () {
+                window.location.href = '/pages/stores';
+            }
         }
-    });
+    })
 }

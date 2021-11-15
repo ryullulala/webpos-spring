@@ -1,14 +1,16 @@
 package com.weblab.webpos.controller;
 
+import com.sun.tools.internal.xjc.model.CDefaultValue;
 import com.weblab.webpos.service.StoreService;
 import com.weblab.webpos.vo.StoreVO;
 import com.weblab.webpos.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -18,37 +20,18 @@ public class StoreController {
     StoreService storeService;
 
     @GetMapping("/stores")
-    public ArrayList<StoreVO> getStores(HttpSession session) {
-        ArrayList<StoreVO> stores;
+    public ResponseEntity<List<StoreVO>> getStores(HttpSession session) {
         UserVO userVO = (UserVO) session.getAttribute("user");
-        stores = storeService.getStoreList(userVO);
-        return stores;
+        List<StoreVO> stores = storeService.getStoreList(userVO);
+        return new ResponseEntity<>(stores, HttpStatus.OK);
     }
+
     @PostMapping("/stores")
-    public HashMap<String, Object> addStore(@RequestBody StoreVO storeVO, HttpSession session) {
-        HashMap<String, Object> result = new HashMap<>();
+    public ResponseEntity<StoreVO> addStore(@RequestBody StoreVO storeVO, HttpSession session) {
         UserVO userVO = (UserVO) session.getAttribute("user");
+        storeVO.setStore_id(1000);
         storeVO.setUser_id(userVO.getUser_id());
         storeService.addStore(storeVO);
-        result.put("resultCode", 1);
-        result.put("resultMessage", "매장 추가 성공");
-        return result;
+        return new ResponseEntity<>(storeVO, HttpStatus.OK);
     }
-//    @DeleteMapping("/stores")
-//    public HashMap<String, Object> deleteStore(@RequestParam StoreVO storeVO) {
-//        HashMap<String, Object> result = new HashMap<>();
-//
-//
-//        return result;
-//    }
-
-//    @RequestMapping("/posMain/{id}")
-//    public String posMain(@PathVariable String id, HttpSession session) {
-//        StoreVO storeVO = storeService.getStore(id);
-//        session.setAttribute("store", storeVO);
-//        return "posMain"; }
-
-
-
-
 }

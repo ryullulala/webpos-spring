@@ -1,9 +1,12 @@
 package com.weblab.webpos.vo;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.sun.xml.internal.ws.developer.Serialization;
+import lombok.*;
 
-@Getter @Setter
+@Getter
+@Setter
+@AllArgsConstructor @NoArgsConstructor
+@Serialization
 public class StoreVO {
     private int store_id;
     private String store_name;
@@ -11,4 +14,5 @@ public class StoreVO {
     private String store_phone;
     //private String store_category;
     private String user_id;
+
 }
