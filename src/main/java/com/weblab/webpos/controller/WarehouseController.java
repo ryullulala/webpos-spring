@@ -20,11 +20,9 @@ public class WarehouseController {
 
     @GetMapping("/getWarehouseItems")
     public String getItems(int id, HttpSession session) {
-//        System.out.println("ajax data coming in -> "+id);
         int store_id = id;
         ArrayList<WarehouseVO> warehouseItems =
         wareHouseService.getWarehouseItems(store_id);
-//        System.out.println(warehouseItems);
         session.setAttribute("items", warehouseItems);
         return "groceryMain";
     }

@@ -48,7 +48,7 @@
         <c:forEach begin="1" end="9" var="i">
 
             <div class="list">
-                <input id="c-${i}" type="button" value=" " class="button button-3d button-box2">
+                <input id="c-${i}" type="button" value=" " class="button button-3d button-box2" onclick="getMenuList(${store_id}, this.value)">
             </div>
 
 
@@ -64,7 +64,6 @@
             <input id="c-add" type="button" class="button button-pill button-small button-primary" value="카테고리 추가">
             <input id="c-fix" type="button" class="button button-pill button-small button-primary" value="카테고리 수정">
             <input id="c-del" type="button" class="button button-pill button-small button-primary" value="카테고리 삭제">
-
         </div>
     </section>
     <section class="menu">
@@ -174,7 +173,25 @@
         }
 
     });
-    var userName = "이순신";
+
+    function getMenuList(store_id, category_name) {
+        $.ajax({
+            type : "GET",
+            url : "/api/menus/"+store_id+"/"+category_name,
+            data : {
+                menuList : "${menuList}",
+            },
+            error : function(error) {
+                console.log("error");
+            },
+            success : function(data) {
+                console.log("success");
+            }
+
+        });
+
+    }
+
 </script>
 </body>
 </html>

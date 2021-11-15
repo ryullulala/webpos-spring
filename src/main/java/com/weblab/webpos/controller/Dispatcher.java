@@ -4,16 +4,16 @@ package com.weblab.webpos.controller;
 import com.weblab.webpos.service.MenuService;
 import com.weblab.webpos.service.StoreService;
 import com.weblab.webpos.vo.CategoryVO;
+import com.weblab.webpos.vo.MenuVO;
 import com.weblab.webpos.vo.StoreVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 @Controller
@@ -79,6 +79,36 @@ public class Dispatcher {
         session.setAttribute("categories", categoryList);
         return "menu";
     }
+
+    @GetMapping("/api/menus/{store_id}/{category_name}")
+    @ResponseBody
+    public String getMenu(@PathVariable String category_name,@PathVariable String store_id, HttpSession session) {
+        String categoryName = category_name;
+//        System.out.println("categoryName : "+categoryName);
+//        System.out.println("store_id : " + store_id);
+
+        CategoryVO categoryVO = new CategoryVO();
+        categoryVO.setCategory_name(categoryName);
+        categoryVO.setStore_id(Integer.parseInt(store_id));
+
+        categoryVO = menuService.getCategoryVO(categoryVO);
+//        System.out.println("cateID : " +categoryVO.getCategory_id());
+
+        ArrayList<MenuVO> menuList = menuService.getMenuList(categoryVO);
+        System.out.println("menuList : " + menuList);
+        session.setAttribute("menuList", menuList);
+
+        Map<String, Object> map = new HashMap<String, Object>();
+
+        map.put("menuList", menuList);
+//        System.out.println("map : "+ map);
+        return null;
+
+
+    }
+
+
+
 
   /*  //식재료 화면
 
