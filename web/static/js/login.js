@@ -1,16 +1,18 @@
 function loginCheck() {
-    var userId = $('#user_id').val();
-    var userPw = $('#user_pw').val();
     $.ajax({
         type: "GET",
         url: "/api/login",
-        data: "user_id=" + userId + "&user_pw=" + userPw,
+        data: { "user_id" : $('#user_id').val(),
+                "user_pw" : $('#user_pw').val()},
         dataType: "json",
-        success: function (data) {
-            if (data.resultCode == 1) {
+        statusCode: {
+            200: function () {
                 window.location.href = '/pages/stores';
-            } else if (resultCode == 0) {
+            },
+            404: function () {
+                window.location.href = '/pages/home';
             }
         }
     })
 }
+
