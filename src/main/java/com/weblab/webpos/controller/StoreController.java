@@ -1,6 +1,5 @@
 package com.weblab.webpos.controller;
 
-import com.sun.tools.internal.xjc.model.CDefaultValue;
 import com.weblab.webpos.service.StoreService;
 import com.weblab.webpos.vo.StoreVO;
 import com.weblab.webpos.vo.UserVO;
@@ -27,11 +26,11 @@ public class StoreController {
     }
 
     @PostMapping("/stores")
-    public ResponseEntity<StoreVO> addStore(@RequestBody StoreVO storeVO, HttpSession session) {
+    public ResponseEntity<Void> addStore(@RequestBody StoreVO storeVO, HttpSession session) {
         UserVO userVO = (UserVO) session.getAttribute("user");
-        storeVO.setStore_id(1000);
         storeVO.setUser_id(userVO.getUser_id());
         storeService.addStore(storeVO);
-        return new ResponseEntity<>(storeVO, HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
+
 }

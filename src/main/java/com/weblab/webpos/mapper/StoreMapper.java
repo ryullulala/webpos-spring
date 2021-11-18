@@ -19,11 +19,8 @@ public interface StoreMapper {
     // 선택한 가게의 가게 정보
     @Select("SELECT * FROM \"Store\" WHERE \"store_id\"= #{store_id}")
     StoreVO getStore(StoreVO storeVO);
-//    // 가게 추가
-//    @Insert("INSERT INTO \"Store\" VALUES(store_id_seq.NEXTVAL, #{store_name}, #{store_address}, #{store_phone}, #{user_id})")
-//    void addStore(StoreVO storeVO);
     // 가게 추가
-    @Insert("INSERT INTO \"Store\" VALUES(#{store_id}, #{store_name}, #{store_address}, #{store_phone}, #{user_id})")
+    @Insert("INSERT INTO \"Store\" VALUES(store_id_seq.NEXTVAL, #{store_name}, #{store_address}, #{store_phone}, #{user_id})")
     void addStore(StoreVO storeVO);
     // 가게 삭제
     @Delete("DELETE FROM \"Store\" WHERE \"store_id\"= #{store_id}")

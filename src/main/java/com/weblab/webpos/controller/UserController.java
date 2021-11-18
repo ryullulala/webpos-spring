@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpSession;
 
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping("/api")
 public class UserController {
 
     @Autowired

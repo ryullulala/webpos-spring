@@ -10,35 +10,35 @@ import javax.servlet.http.HttpSession;
 
 
 @Controller
-@RequestMapping(value = "/", method = RequestMethod.GET)
+@RequestMapping("/pages")
 public class Dispatcher {
 
     //메인 화면
-    @GetMapping("/pages/home")
+    @GetMapping("/home")
     public String homePage() {
         return "index";
     }
     //로그인 화면
-    @GetMapping("/pages/login")
+    @GetMapping("/login")
     public String loginPage() {
         return "loginPage";
     }
     //로그아웃
-    @GetMapping("/pages/logout")
+    @GetMapping("/logout")
     public String logoutPage(HttpSession session) {
         session.invalidate();
         return "redirect:/pages/home";
     }
     //회원가입 화면
-    @GetMapping("/pages/join")
+    @GetMapping("/join")
     public String joinPage() { return "signup";}
     //로그인 성공시 화면
-    @GetMapping("/pages/stores")
+    @GetMapping("/stores")
     public String storesPage() {
         return "loginedHome";
     }
     //가게 추가 화면
-    @GetMapping("/pages/stores/add")
+    @GetMapping("/stores/add")
     public String addStorePage() {
         return "addStorePage";
     }

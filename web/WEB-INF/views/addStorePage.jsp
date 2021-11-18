@@ -33,7 +33,7 @@
     <div class="container">
         <%request.setCharacterEncoding("UTF-8");%>
 
-        <form class="well form-horizontal" id="storeInfo_form">
+        <div class="well form-horizontal" id="storeInfo_form">
             <fieldset>
                 <!-- Form Name -->
                 <legend><center><h2><b>${user.user_name}님 보유 매장 추가</b></h2></center></legend><br>
@@ -43,7 +43,7 @@
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="store_name" placeholder="매장 이름을 입력하세요." class="form-control"  type="text">
+                            <input name="store_name" id="store_name" placeholder="매장 이름을 입력하세요." class="form-control"  type="text">
                         </div>
 
                     </div>
@@ -54,7 +54,7 @@
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input name="store_address" placeholder="부산광역시 사상구 백양대로 00-00" class="form-control"  type="text">
+                            <input name="store_address" id="store_address" placeholder="부산광역시 사상구 백양대로 00-00" class="form-control"  type="text">
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 
 
-                            <input name="store_phone" placeholder="051-000-0000" class="form-control"  type="text">
+                            <input name="store_phone" id="store_phone" placeholder="051-000-0000" class="form-control"  type="text">
 
 
                         </div>
@@ -103,7 +103,7 @@
                     </div>
                 </div>
             </fieldset>
-        </form>
+        </div>
     </div><!-- /.container -->
 </body>
 </html>
