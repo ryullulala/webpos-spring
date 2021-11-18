@@ -42,6 +42,9 @@ public class Dispatcher {
     public String addStorePage() {
         return "addStorePage";
     }
+    //포스 메인
+    @GetMapping("/pos")
+    public String posMain() { return "posMain";}
 
 
 

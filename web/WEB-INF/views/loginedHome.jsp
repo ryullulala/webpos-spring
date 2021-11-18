@@ -57,7 +57,7 @@
     <tr>
         <td>{storeName}</td>
         <td>
-            <button onclick='location.href="/pages/pos/"+{storeId}'>선택</button>
+            <button onclick='location.href="/pages/pos?storeId="+{storeId}'>선택</button>
         </td>
         <td>
             <button>상세 정보</button>

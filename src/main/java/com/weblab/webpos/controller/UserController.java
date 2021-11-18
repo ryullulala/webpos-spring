@@ -37,10 +37,4 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-//    // 회원가입 요청
-//    @PostMapping("/join")
-//    public String join(UserVO user) {
-//        userService.join(user);
-//        return "loginPage";
-//    }
 }

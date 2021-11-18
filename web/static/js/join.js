@@ -110,5 +110,5 @@ $(document).ready(function() {
             $.post($form.attr('action'), $form.serialize(), function(result) {
                 console.log(result);
             }, 'json');
-        });
+    });
 });
