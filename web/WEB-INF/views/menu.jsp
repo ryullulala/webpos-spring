@@ -186,6 +186,7 @@
             },
             success : function(data) {
                 console.log("success");
+                console.log(typeof data);
             }
 
         });

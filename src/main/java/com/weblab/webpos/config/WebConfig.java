@@ -5,11 +5,14 @@ import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.*;
 import java.util.EnumSet;
 
 //  web.xml을 로딩하는 대신 onStartup메소드 호출
+
 public class WebConfig implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) throws ServletException {
@@ -36,5 +39,10 @@ public class WebConfig implements WebApplicationInitializer {
         rootAppContext.register(RootAppContext.class);
         ContextLoaderListener listener = new ContextLoaderListener(rootAppContext);
         servletContext.addListener(listener);
+
+        
+
     }
+
+
 }
