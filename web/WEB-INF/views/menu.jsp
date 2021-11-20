@@ -195,7 +195,7 @@
             type : "GET",
             url : "/api/menus/"+store_id+"/"+category_name,
             data : {
-                menuList : "${menuList}"
+                menuList : ${menuList}
             },
             error : function(error) {
                 console.log("error");
@@ -203,6 +203,8 @@
             success : function(data) {
                 console.log("success");
                 console.log(data.type)
+                var objectToJSON = JSON.stringify(data);
+                console.log(objectToJSON);
             }
 
         });
@@ -210,6 +212,7 @@
 
 
     }
+
 
 </script>
 </body>

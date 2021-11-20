@@ -11,17 +11,22 @@ import java.util.ArrayList;
 @Repository
 public class WareHouseService {
 
-    @Autowired
-    AddIngredientMapper addIngredientMapper;
+
     @Autowired
     WarehouseItemsMapper warehouseItemsMapper;
 
-    public void addIngredient(WarehouseVO warehouseVO){ addIngredientMapper.AddIngredient(warehouseVO); }
+    public void addItem(WarehouseVO warehouseVO){
+        warehouseItemsMapper.addItem(warehouseVO);
+    }
 
     public ArrayList<WarehouseVO> getWarehouseItems(int store_id){
         ArrayList<WarehouseVO> itemList =
         warehouseItemsMapper.getWarehouseItems(store_id);
         return itemList;
+    }
+
+    public void deleteItem(WarehouseVO warehouseVO){
+        warehouseItemsMapper.deleteItem(warehouseVO);
     }
 
 

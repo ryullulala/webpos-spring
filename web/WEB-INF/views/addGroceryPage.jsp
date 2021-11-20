@@ -29,6 +29,7 @@
     </style>
 </head>
 <body>
+<%request.getSession();%>
     <div id="webView" >
 
         <jsp:include page="header.jsp"></jsp:include>

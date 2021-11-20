@@ -68,6 +68,14 @@ public class Dispatcher {
     public String groceryMain(@PathVariable int store_id, HttpSession session) {
         return "groceryMain";
     }
+    @GetMapping("/pages/wareHouse/add/{store_id}")
+    public String addGroceryPage(@PathVariable String store_id, HttpSession session) {
+//        String id = store_id;
+//        StoreVO store = storeService.getStore(id);
+//        ArrayList<CategoryVO> categoryList = menuService.getCategoryList(store);
+//        session.setAttribute("categories", categoryList);
+        return "addGroceryPage";
+    }
 
     @GetMapping("/pages/sales/{store_id}")
     public String salesPage(@PathVariable int store_id, HttpSession session) {
@@ -83,7 +91,14 @@ public class Dispatcher {
         return "menu";
     }
 
-    @RequestMapping(value="/api/menus/{store_id}/{category_name}", method = RequestMethod.GET)
+
+
+
+
+
+    /* 포기~!!!
+
+    @RequestMapping(value="/api/menus/{store_id}/{category_name}")
     public String getMenu(@PathVariable String category_name, @PathVariable String store_id, HttpSession session) {
         String categoryName = category_name;
 //        System.out.println("categoryName : "+categoryName);
@@ -105,30 +120,9 @@ public class Dispatcher {
 
     }
 
+*/
 
 
-
-  /*  //식재료 화면
-
-    //
-
-
-
-    //포스메인에서 투두 상세보기하면 테이블 띄워주는 거 --> 데이터 반영하는 걸로 고쳐야함
-    @RequestMapping("/pages/test2")
-    public String test() {
-        return "test2";
-    }
-
-    @RequestMapping("/pages/dragTest")
-    public String dragTest() {
-        return "dragTest";
-    }
-
-    @RequestMapping("/pages/addCatePage")
-    public String addCatePage() {
-        return "addCatePage";
-    }*/
 
 }
 

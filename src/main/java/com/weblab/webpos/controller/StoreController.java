@@ -45,11 +45,7 @@ public class StoreController {
         return result;
     }
 
-//    @RequestMapping("/posMain/{id}")
-//    public String posMain(@PathVariable String id, HttpSession session) {
-//        StoreVO storeVO = storeService.getStore(id);
-//        session.setAttribute("store", storeVO);
-//        return "posMain"; }
+
 
 
 

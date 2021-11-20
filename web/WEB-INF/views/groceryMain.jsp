@@ -13,26 +13,21 @@
         <link href="/static/css/groceryMain-style.css" type="text/css" rel="stylesheet">
         <link href="/static/css/buttons.css" type="text/css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="/static/js/groManagePaging.js" type="text/javascript"></script>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     </head>
 
     <body>
         <div id="webView">
             <jsp:include page="header.jsp"></jsp:include>
+            <%request.getSession();%>
 
 
-            <div id="sortSelectLayoutL" >
-                <p>번호순 정렬 기능</p>
-            </div>
 
-            <div id="sortSelectLayoutR">
-                <p>내림/오름 정렬 기능</p>
-            </div>
-
-
-            <div id="searchLayout">
-                <p>테이블 검색 기능</p>
-            </div>
             <div id="tableView">
                 <table id="products" border="1">
 
@@ -45,9 +40,12 @@
                         </p>
                     </form>
 
-
+                    <div class="allCheck">
+                        <input type="checkbox" name="allCheck" id="allCheck" /><label for="allCheck">모두 선택</label>
+                    </div>
                     <thead>
                     <tr>
+                        <th>  </th>
                         <th>No.</th>
                         <th>식자재명</th>
                         <th>남은수량</th>
@@ -58,6 +56,12 @@
 
                     <tbody>
                     <tr>
+                        <td>
+                            <div class="checkBox">
+                                <input type="checkbox" name="chBox" class="chBox" data-id = ${items.ingredient_id}>
+                            </div>
+                        </td>
+
                         <td>${status.count}</td>
                         <td>${items.ingredient_name}</td>
                         <td>${items.ingredient_qty}</td>
@@ -73,16 +77,69 @@
             </div>
             <div class="button button-pill button-small button-primary"
                  id="addBtnLayout"
-                 style="position: absolute; top: 580px; left: 54px; " onclick="location.href='/addGroceryPage'">
+                 style="position: absolute; top: 580px; left: 54px; " onclick="addBtn()">
                 식자재 추가
             </div>
-            <div class="button button-pill button-small button-primary" id="deleteBtnLayout" style="position: absolute; top: 580px; left: 200px;">
-                식자재 삭제
-            </div>
+
+            <input type="button" value="선택 삭제" class="button button-pill button-small button-primary selectDelete_btn" id="deleteBtnLayout" style="position: absolute; top: 580px; left: 200px;">
+            <script>
+                $(".selectDelete_btn").click(function(){
+                    var confirm_val = confirm("정말 삭제하시겠습니까?");
+
+                    if(confirm_val) {
+                        var checkArr = new Array();
+
+                        $("input[class='chBox']:checked").each(function(){
+                            checkArr.push($(this).attr("data-id"));
+                        });
+
+                        $.ajax({
+                            url : "/api/delete/"+${store_id},
+                            type : "post",
+                            data : { chbox : checkArr },
+                            success : function(){
+                                location.href = "/pages/wareHouse/"+${store_id};
+                            }
+                        });
+                    }
+                });
+            </script>
             <div class="button button-pill button-small button-primary" id="orderBtnLayout" style="position: absolute; top: 580px; left: 800px; ">
                 주문
             </div>
         </div>
+
+        <div id="dialog-add" title = "식자재 추가" style="display: none">
+            <form id = "add-form" action="/api/addGrocery/${store_id}" method="post">
+
+                <p>
+                    식자재 이름 <input type="text" name="ingredient_name" >
+                </p>
+                <p>
+                    수량 <input type="number" name="ingredient_qty">
+                </p>
+                <p>
+                    유통기한 <input type="text" name="expiration_date">
+                </p>
+            </form>
+
+        </div>
+
+        <script>
+            function addBtn()
+            {
+                $('#dialog-add').dialog({
+                    modal: true,
+                    buttons: {
+
+                        "확인": function() { $("#add-form").submit(); }
+                    }
+                });
+            }
+
+        </script>
+
+
 
         <script>
             var $setRows = $('#setRows');
@@ -159,11 +216,20 @@
 
 
         </script>
-    <script>
+        <script>
+            $("#allCheck").click(function(){
+                var chk = $("#allCheck").prop("checked");
+                if(chk) {
+                    $(".chBox").prop("checked", true);
+                } else {
+                    $(".chBox").prop("checked", false);
+                }
+            });
+            $(".chBox").click(function(){
+                $("#allCheck").prop("checked", false);
+            });
+        </script>
 
-
-
-    </script>
 
 
 
