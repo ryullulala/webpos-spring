@@ -12,6 +12,7 @@ function getWarehouseItems() {
         //}
 
     })
+    location.href = "/pages/wareHouse/" + store_id;
 
 
 }

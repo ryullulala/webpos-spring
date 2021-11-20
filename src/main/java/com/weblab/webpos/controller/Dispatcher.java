@@ -8,12 +8,15 @@ import com.weblab.webpos.vo.MenuVO;
 import com.weblab.webpos.vo.StoreVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
 
 
 @Controller
@@ -80,9 +83,8 @@ public class Dispatcher {
         return "menu";
     }
 
-    @GetMapping("/api/menus/{store_id}/{category_name}")
-    @ResponseBody
-    public String getMenu(@PathVariable String category_name,@PathVariable String store_id, HttpSession session) {
+    @RequestMapping(value="/api/menus/{store_id}/{category_name}", method = RequestMethod.GET)
+    public String getMenu(@PathVariable String category_name, @PathVariable String store_id, HttpSession session) {
         String categoryName = category_name;
 //        System.out.println("categoryName : "+categoryName);
 //        System.out.println("store_id : " + store_id);
@@ -98,11 +100,7 @@ public class Dispatcher {
         System.out.println("menuList : " + menuList);
         session.setAttribute("menuList", menuList);
 
-        Map<String, Object> map = new HashMap<String, Object>();
-
-        map.put("menuList", menuList);
-//        System.out.println("map : "+ map);
-        return null;
+        return "redirect:/pages/menu/"+store_id;
 
 
     }

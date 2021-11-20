@@ -28,6 +28,8 @@
 <body data-locale="ko">
 <%request.getSession();%>
 <div id="container">
+
+    메뉴리스트 : ${menuList}
     <header>
 
         <h1>${store_id} 가게</h1>
@@ -68,33 +70,47 @@
     </section>
     <section class="menu">
         <h3 class="subtitle">메뉴</h3>
-        <div class="list">
-            <input type="button" id="m-1" value=" " class="button button-3d button-box2">
-        </div>
-        <div class="list">
-            <input type="button" id="m-2" value=" " class="button button-3d button-box2">
-        </div>
-        <div class="list">
-            <input type="button" id="m-3" value=" " class="button button-3d button-box2">
-        </div>
-        <div class="list">
-            <input type="button" id="m-4" value=" " class="button button-3d button-box2">
-        </div>
-        <div class="list">
-            <input type="button" id="m-5" value=" " class="button button-3d button-box2">
-        </div>
-        <div class="list">
-            <input type="button" id="m-6" value=" " class="button button-3d button-box2">
-        </div>
-        <div class="list">
-            <input type="button" id="m-7" value=" " class="button button-3d button-box2">
-        </div>
-        <div class="list">
-            <input type="button" id="m-8" value=" " class="button button-3d button-box2">
-        </div>
-        <div class="list">
-            <input type="button" id="m-9" value=" " class="button button-3d button-box2">
-        </div>
+        <c:forEach begin="1" end="9" var="i">
+
+            <div class="list">
+                <input id="m-${i}" type="button" value=" " class="button button-3d button-box2" onclick="">
+            </div>
+
+
+        </c:forEach>
+        <c:forEach items="${menuList}" var="menu" varStatus="status">
+            <script>
+                $("#m-${status.count}").val("${menu.menu_name}")
+
+            </script>
+        </c:forEach>
+<%--        <div class="list">--%>
+<%--            <input type="button" id="m-1" value=" " class="button button-3d button-box2">--%>
+<%--        </div>--%>
+<%--        <div class="list">--%>
+<%--            <input type="button" id="m-2" value=" " class="button button-3d button-box2">--%>
+<%--        </div>--%>
+<%--        <div class="list">--%>
+<%--            <input type="button" id="m-3" value=" " class="button button-3d button-box2">--%>
+<%--        </div>--%>
+<%--        <div class="list">--%>
+<%--            <input type="button" id="m-4" value=" " class="button button-3d button-box2">--%>
+<%--        </div>--%>
+<%--        <div class="list">--%>
+<%--            <input type="button" id="m-5" value=" " class="button button-3d button-box2">--%>
+<%--        </div>--%>
+<%--        <div class="list">--%>
+<%--            <input type="button" id="m-6" value=" " class="button button-3d button-box2">--%>
+<%--        </div>--%>
+<%--        <div class="list">--%>
+<%--            <input type="button" id="m-7" value=" " class="button button-3d button-box2">--%>
+<%--        </div>--%>
+<%--        <div class="list">--%>
+<%--            <input type="button" id="m-8" value=" " class="button button-3d button-box2">--%>
+<%--        </div>--%>
+<%--        <div class="list">--%>
+<%--            <input type="button" id="m-9" value=" " class="button button-3d button-box2">--%>
+<%--        </div>--%>
         <div class="select">
             <input id="m-add" type="button" class="button button-pill button-small button-primary" value="메뉴 추가">
             <input id="m-fix" type="button" class="button button-pill button-small button-primary" value="메뉴 수정">
@@ -179,17 +195,19 @@
             type : "GET",
             url : "/api/menus/"+store_id+"/"+category_name,
             data : {
-                menuList : "${menuList}",
+                menuList : "${menuList}"
             },
             error : function(error) {
                 console.log("error");
             },
             success : function(data) {
                 console.log("success");
-                console.log(typeof data);
+                console.log(data.type)
             }
 
         });
+
+
 
     }
 
