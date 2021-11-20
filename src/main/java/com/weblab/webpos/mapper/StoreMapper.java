@@ -23,7 +23,7 @@ public interface StoreMapper {
     @Insert("INSERT INTO \"Store\" VALUES(store_id_seq.NEXTVAL, #{store_name}, #{store_address}, #{store_phone}, #{user_id})")
     void addStore(StoreVO storeVO);
     // 가게 삭제
-    @Delete("DELETE FROM \"Store\" WHERE \"store_id\"= #{store_id}")
-    void deleteStore(StoreVO storeVO);
+    @Delete("DELETE FROM \"Store\" WHERE \"store_id\"= #{storeId}")
+    void deleteStore(int stordId);
 
 }

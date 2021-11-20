@@ -6,11 +6,13 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface CategoryMapper {
+import java.util.ArrayList;
 
-    @Select("SELECT * FROM \"Category\" where \"store_id\" = #{store_id}")
-    CategoryVO getCategoryList(StoreVO storeVO);
+@Repository
+public interface MenuMapper {
+
+    @Select("SELECT * FROM \"Category\" where \"store_id\" = #{storeId}")
+    ArrayList<CategoryVO> getCategories(String storeId);
 
     @Insert("INSERT INTO \"Category\" VALUES(#{store_id}, category_id_seq.NEXTVAL, #{category_name})")
     void addCategory(CategoryVO categoryVO);

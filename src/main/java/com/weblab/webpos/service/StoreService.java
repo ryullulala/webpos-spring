@@ -27,8 +27,11 @@ public class StoreService {
         StoreVO store = storeMapper.getStore(storeVO);
         return store;
     }
+    // 가게 추가
     public void addStore(StoreVO storeVO) {
         storeMapper.addStore(storeVO);
     }
+    // 가게 삭제
+    public void deleteStore(int storeId) { storeMapper.deleteStore(storeId); }
 
 }

@@ -32,9 +32,9 @@
         <h1>${id} 가게</h1>
         <nav>
             <ul class="top-menu">
-                <li><a href="/posMain">POS</a></li>
+                <li><a href="/pos">POS</a></li>
                 <li><a href="#">매출 관리</a></li>
-                <li><a href="/menu">매뉴 관리</a></li>
+                <li><a href="/pages/menu">매뉴 관리</a></li>
                 <li><a href="#">테이블 위치 관리</a></li>
                 <li><a href="#">식자재 관리</a></li>
                 <li class="cut"><a href="/logout">로그아웃</a></li>
@@ -42,19 +42,19 @@
         </nav>
     </header>
 
-    <section class="category">
+    <section class="category" id="categoryView">
         <h3 class="subtitle">카테고리</h3>
         <div class="list">
-            <input id="c-1" type="button" value="${categories.category_name} " class="button button-3d button-box2">
+            <input id="c-1" type="button" value="{categoryName}" class="button button-3d button-box2">
         </div>
         <div class="list">
-            <input id="c-2" type="button" value=" " class="button button-3d button-box2">
+            <input id="c-2" type="button" value="{categoryName}" class="button button-3d button-box2">
         </div>
         <div class="list">
-            <input id="c-3" type="button" value=" " class="button button-3d button-box2">
+            <input id="c-3" type="button" value="{categoryName}" class="button button-3d button-box2">
         </div>
         <div class="list">
-            <input id="c-4" type="button" value=" " class="button button-3d button-box2">
+            <input id="c-4" type="button" value="{categoryName}" class="button button-3d button-box2">
         </div>
         <div class="list">
             <input id="c-5" type="button" value=" " class="button button-3d button-box2">
@@ -112,77 +112,7 @@
             <input id="m-del" type="button" class="button button-pill button-small button-primary" value="메뉴 삭제">
         </div>
     </section>
-
+    <input name="storeId" id="storeId" type="hidden" value=${storeId}>
 </div>
-
-
-<script type="text/javascript">
-    $(document).ready(function () {
-
-    })
-    window.addEventListener("load", function () {
-        var C1 = document.getElementById("c-1");
-        var C2 = document.getElementById("c-2");
-        var C3 = document.getElementById("c-3");
-        var C4 = document.getElementById("c-4");
-        var C5 = document.getElementById("c-5");
-        var C6 = document.getElementById("c-6");
-        var C7 = document.getElementById("c-7");
-        var C8 = document.getElementById("c-8");
-        var C9 = document.getElementById("c-9");
-        var cCount = 0; // 카테고리 추가 카운트
-        var cAr = [C1, C2, C3, C4, C5, C6, C7, C8, C9];
-
-        let cAdd = document.getElementById("c-add");
-        let cFix = document.getElementById("c-fix");
-        let cDel = document.getElementById("c-del");
-
-        var M1 = document.getElementById("m-1");
-        var M2 = document.getElementById("m-2");
-        var M3 = document.getElementById("m-3");
-        var M4 = document.getElementById("m-4");
-        var M5 = document.getElementById("m-5");
-        var M6 = document.getElementById("m-6");
-        var M7 = document.getElementById("m-7");
-        var M8 = document.getElementById("m-8");
-        var M9 = document.getElementById("m-9");
-
-        cAdd.onclick = function () {
-            for (let i = cCount; i <= cAr.length; i++) {
-                if (cAr[i].value == " ") {
-                    let cInput = prompt("카테고리 입력", "");
-
-                    //alert(typeof cInput);
-                    cAr[i].value = cInput;
-                    console.log(cInput);
-
-                    $.ajax({
-                        url: "/category/${id}",
-                        data: "category_name=" + cInput,
-                        type: "POST",
-
-                    });
-
-
-                    if (cAr[i].value == "") {
-                        cAr[i].value = " ";
-                        alert("공백을 넣을 수 없습니다.");
-                        break;
-                    }
-
-                    cCount++;
-                    break;
-                } else {
-                    alert("더 이상 추가할 수 없습니다.");
-                    break;
-                }
-            }
-
-
-        }
-
-    });
-    var userName = "이순신";
-</script>
 </body>
 </html>

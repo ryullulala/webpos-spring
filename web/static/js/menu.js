@@ -1,3 +1,32 @@
+$(document).ready(function () {
+    let storeId = {"storeId" : $('#storeId').val()};
+    $.ajax({
+        url: "/api/categories", // 요청이 전송될 URL 주소
+        type: "GET", // http 요청 방식 (default: ‘GET’)
+        data:  storeId,
+        statusCode: {
+            200:
+                function (data) {
+                    var categories = data
+                    console.log(categories);
+                    var tmpHtml = $('#categoryView').text();
+                    var dataHtml = '';
+
+                    if (categories.length == 0) {
+                        //dataHtml = $('#noResult').text();
+                    } else {
+                        var tmp = '';
+                        $.each(categories, function (i, v) {
+                            tmp = tmpHtml;
+                            tmp = tmp.replace('{categoryName}', v.category_name);
+                            dataHtml += tmp;
+                        });
+                    }
+                    $('#categoryView').html(dataHtml);
+                }
+        }
+    });
+});
 window.addEventListener("load", function() {
     var C1 = document.getElementById("c-1");
     var C2 = document.getElementById("c-2");

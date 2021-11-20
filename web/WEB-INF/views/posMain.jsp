@@ -58,7 +58,7 @@
     </table>
     <button id="detailBtn" onclick="fetchPage('test2')" >상세 정보</button>
   </div>
-
+  <input name="storeId" id="storeId" type="hidden" value=${storeId}>
 
 </div>
 </div>

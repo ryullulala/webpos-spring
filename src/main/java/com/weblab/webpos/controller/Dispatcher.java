@@ -3,20 +3,17 @@ package com.weblab.webpos.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
 
 
 @Controller
-@RequestMapping("/pages")
 public class Dispatcher {
 
     //메인 화면
     @GetMapping("/home")
     public String homePage() {
-        return "index";
+        return "home";
     }
     //로그인 화면
     @GetMapping("/login")
@@ -27,24 +24,22 @@ public class Dispatcher {
     @GetMapping("/logout")
     public String logoutPage(HttpSession session) {
         session.invalidate();
-        return "redirect:/pages/home";
+        return "redirect:/home";
     }
     //회원가입 화면
     @GetMapping("/join")
-    public String joinPage() { return "signup";}
+    public String joinPage() { return "join";}
     //로그인 성공시 화면
     @GetMapping("/stores")
     public String storesPage() {
-        return "loginedHome";
+        return "storeListPage";
     }
     //가게 추가 화면
     @GetMapping("/stores/add")
     public String addStorePage() {
         return "addStorePage";
     }
-    //포스 메인
-    @GetMapping("/pos")
-    public String posMain() { return "posMain";}
+
 
 
 

@@ -1,14 +1,9 @@
-function addStore() {
-    //let serializedStore = $("#storeInfo_form").serialize()
+function deleteStore(storeId) {
     $.ajax({
         url: '/api/stores',
-        method: 'POST',
+        method: 'DELETE',
         contentType: 'application/json',
-        data: JSON.stringify({
-            store_name: $('#store_name').val(),
-            store_address: $('#store_address').val(),
-            store_phone: $('#store_phone').val()
-        }),
+        data: JSON.stringify({storeId : storeId}),
         statusCode: {
             200: function () {
                 window.location.href = '/stores';

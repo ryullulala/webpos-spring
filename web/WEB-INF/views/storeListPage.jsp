@@ -13,6 +13,7 @@
     <link href="/static/css/loginedHome-style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="/static/js/stores.js"></script>
+    <script type="text/javascript" src="/static/js/deleteStore.js"></script>
 
     <title>로그인 후 home 화면</title>
 </head>
@@ -20,13 +21,13 @@
 <div id="webView">
     <div style="position: absolute; top: 43.525px; left: 87px;">
         <div style="font-weight: bold; font-size: 24px; text-align: left; color: rgb(41, 128, 185);"
-             onclick="location.href ='/pages/home' ">WEB POS
+             onclick="location.href ='/home' ">WEB POS
         </div>
     </div>
 
     <div style="position: absolute; top: 43.525px; left: 609px; width: 300px; height: 27px;">
         <div style="font-weight: bold; font-size: 18px; text-align: center; color: rgb(52, 152, 219);" class=""
-             onclick="location.href = '/pages/logout' ">내 정보 | 로그아웃
+             onclick="location.href = '/logout' ">내 정보 | 로그아웃
         </div>
     </div>
 
@@ -48,7 +49,7 @@
             <tbody>
             </tbody>
         </table>
-        <button onclick="location.href ='/pages/stores/add'">매장 추가</button>
+        <button onclick="location.href ='/stores/add'">매장 추가</button>
     </div>
 </div>
 </body>
@@ -57,7 +58,7 @@
     <tr>
         <td>{storeName}</td>
         <td>
-            <button onclick='location.href="/pages/pos?storeId="+{storeId}'>선택</button>
+            <button onclick="location.href = '/pos?storeId={storeId}'">선택</button>
         </td>
         <td>
             <button>상세 정보</button>
@@ -66,7 +67,7 @@
             <button>수정</button>
         </td>
         <td>
-            <button>삭제</button>
+            <button onclick=deleteStore('{storeId}')>삭제</button>
         </td>
     </tr>
 </script>

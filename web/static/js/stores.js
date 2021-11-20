@@ -17,7 +17,7 @@ $(document).ready(function () {
                         $.each(stores, function (i, v) {
                             tmp = tmpHtml;
                             tmp = tmp.replace('{storeName}', v.store_name);
-                            tmp = tmp.replace('{storeId}', v.store_id);
+                            tmp = tmp.replaceAll('{storeId}', v.store_id);
                             dataHtml += tmp;
                         });
                     }
