@@ -98,7 +98,6 @@
                             type : "post",
                             data : { chbox : checkArr },
                             success : function(){
-                                location.href = "/pages/wareHouse/"+${store_id};
                             }
                         });
                     }
@@ -110,7 +109,7 @@
         </div>
 
         <div id="dialog-add" title = "식자재 추가" style="display: none">
-            <form id = "add-form" action="/api/addGrocery/${store_id}" method="post">
+            <form id = "add-form">
 
                 <p>
                     식자재 이름 <input type="text" name="ingredient_name" >
@@ -132,9 +131,27 @@
                     modal: true,
                     buttons: {
 
-                        "확인": function() { $("#add-form").submit(); }
-                    }
+                        "확인": function() {
+                            var form = $("#add-form").serialize();
+
+                            $.ajax({
+                                type: "post",
+                                url: "/api/addGrocery/${store_id}",
+                                data: form,
+                                dataType: 'json',
+                                success: function (data) {
+                                    alert("success");
+                                    console.log(data);
+
+                                },
+                                error: function (request, status, error) {
+                                    console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+
+                                }
+                        });
+                    }}
                 });
+
             }
 
         </script>

@@ -30,9 +30,11 @@ public class WarehouseController {
     }
 
     @PostMapping("/addGrocery/{store_id}")
-    public String addItems(@PathVariable int store_id, WarehouseVO warehouseVO){
+    public int addItems(@PathVariable int store_id, WarehouseVO warehouseVO){
+
         wareHouseService.addItem(warehouseVO);
-        return "redirect:/pages/wareHouse/"+store_id;
+        int result = 1;
+        return result;
     }
 
     @ResponseBody
