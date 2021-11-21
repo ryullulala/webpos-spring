@@ -68,14 +68,7 @@ public class Dispatcher {
     public String groceryMain(@PathVariable int store_id, HttpSession session) {
         return "groceryMain";
     }
-    @GetMapping("/pages/wareHouse/add/{store_id}")
-    public String addGroceryPage(@PathVariable String store_id, HttpSession session) {
-//        String id = store_id;
-//        StoreVO store = storeService.getStore(id);
-//        ArrayList<CategoryVO> categoryList = menuService.getCategoryList(store);
-//        session.setAttribute("categories", categoryList);
-        return "addGroceryPage";
-    }
+
 
     @GetMapping("/pages/sales/{store_id}")
     public String salesPage(@PathVariable int store_id, HttpSession session) {

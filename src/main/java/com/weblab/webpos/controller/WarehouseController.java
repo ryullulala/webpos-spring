@@ -30,19 +30,22 @@ public class WarehouseController {
     }
 
     @PostMapping("/addGrocery/{store_id}")
-    public int addItems(@PathVariable int store_id, WarehouseVO warehouseVO){
+    public String addItems(@PathVariable int store_id, WarehouseVO warehouseVO, HttpSession session){
 
         wareHouseService.addItem(warehouseVO);
-        int result = 1;
-        return result;
+
+        ArrayList<WarehouseVO> warehouseItems =
+                wareHouseService.getWarehouseItems(store_id);
+        session.setAttribute("items", warehouseItems);
+        return "groceryMain";
+
+
     }
 
-    @ResponseBody
+
     @PostMapping(value = "/delete/{store_id}")
-    public int deleteCart(@RequestParam(value = "chbox[]") List<String> chArr, WarehouseVO warehouseVO, @PathVariable int store_id) throws Exception {
+    public String deleteCart(@RequestParam(value = "chbox[]") List<String> chArr, WarehouseVO warehouseVO, @PathVariable int store_id, HttpSession session) throws Exception {
 
-
-        int result = 1;
         int ingredient_id = 0;
 
         for(String i : chArr) {
@@ -52,7 +55,11 @@ public class WarehouseController {
             wareHouseService.deleteItem(warehouseVO);
         }
 
-        return result;
+        ArrayList<WarehouseVO> warehouseItems =
+                wareHouseService.getWarehouseItems(store_id);
+        session.setAttribute("items", warehouseItems);
+        return "groceryMain";
+
     }
 
 
