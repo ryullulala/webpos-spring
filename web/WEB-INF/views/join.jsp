@@ -22,7 +22,7 @@
 </head>
 <body>
 <div class="container">
-    <form class="well form-horizontal" action="/api/join" method="post" id="contact_form">
+    <form class="well form-horizontal" id="contact_form">
         <fieldset>
             <!-- Form Name -->
             <legend>
@@ -52,7 +52,7 @@
             </div>
 
             <!-- Text input-->
-            <div class="form-group">
+            <%--<div class="form-group">
                 <label class="col-md-4 control-label">비밀번호 확인</label>
                 <div class="col-md-4 inputGroupContainer">
                     <div class="input-group">
@@ -61,7 +61,7 @@
                                type="password">
                     </div>
                 </div>
-            </div>
+            </div>--%>
 
             <div class="form-group">
                 <label class="col-md-4 control-label">이름</label>
@@ -125,7 +125,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label"></label>
                 <div class="col-md-4"><br>
-                    <button onclick="">가입하기</button>
+                    <button onclick="join()">가입하기</button>
                 </div>
             </div>
         </fieldset>

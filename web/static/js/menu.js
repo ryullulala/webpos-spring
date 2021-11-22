@@ -94,15 +94,15 @@ function getMenu(categoryId) {
             statusCode: {
                 200: function (menu) {
                     console.log(menu);
-                    let tmpStr = $('#menuView').text();
-                    console.log(tmpStr)
+                    let tmpStr = $('#menuView').html();
+
 
                     if (menu.length === 0) {
                     } else {
                         $.each(menu, function (i, v) {
-                            tmpStr.replace("{menuName}", v.menu_name);
+                            tmpStr = tmpStr.replace("{menuName}", v.menu_name);
                         });
-                        tmpStr.replaceAll("{menuName}", " ");
+                        tmpStr = tmpStr.replaceAll("{menuName}", " ");
                         $('#menuView').html(tmpStr);
                     }
                 }

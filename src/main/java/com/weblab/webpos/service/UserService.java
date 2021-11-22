@@ -16,9 +16,9 @@ public class UserService {
         return userMapper.login(userVO);
     }
 
-/*    //회원가입
+    //회원가입
     public void join(UserVO userVO) {
         userMapper.join(userVO);
-    }*/
+    }
 
 }

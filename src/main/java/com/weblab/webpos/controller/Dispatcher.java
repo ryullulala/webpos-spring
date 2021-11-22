@@ -58,7 +58,7 @@ public class Dispatcher {
         return mav;
     }
 
-    //포스 메뉴
+    //메뉴 페이지
     @GetMapping("/pos/menu")
     public ModelAndView posMenu(@RequestParam(value = "storeId") String storeId) {
         ModelAndView mav = new ModelAndView();
@@ -66,38 +66,34 @@ public class Dispatcher {
         mav.addObject("storeId", storeId);
         return mav;
     }
-
-
-
-
-
-  /*  //식재료 화면
-    @GetMapping("/pages/groceryMain")
+    //식자재 관리
+    @GetMapping("/groceries")
     public String groceryMain() {
-        return "groceryMain";
+        return "groceryPage";
     }
-    //
-    @GetMapping("/pages/salesPage")
+
+    //매출관리 페이지
+    @GetMapping("/sales")
     public String salesPage() {
         return "salesPage";
     }
 
-
     //포스메인에서 투두 상세보기하면 테이블 띄워주는 거 --> 데이터 반영하는 걸로 고쳐야함
-    @RequestMapping("/pages/test2")
+    @GetMapping("/test2")
     public String test() {
         return "test2";
     }
 
-    @RequestMapping("/pages/dragTest")
+    @GetMapping("/dragTest")
     public String dragTest() {
         return "dragTest";
     }
 
-    @RequestMapping("/pages/addCatePage")
+    @GetMapping("/addCatePage")
     public String addCatePage() {
         return "addCatePage";
-    }*/
+    }
+
 
 }
 
