@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
     <head>
         <title>식자재 관리 페이지</title>
@@ -65,7 +66,7 @@
                         <td>${status.count}</td>
                         <td>${items.ingredient_name}</td>
                         <td>${items.ingredient_qty}</td>
-                        <td>${items.expiration_date}</td>
+                        <td><fmt:formatDate value="${items.expiration_date}" pattern="yyyy-MM-dd"/></td>
 
                     </tr>
 

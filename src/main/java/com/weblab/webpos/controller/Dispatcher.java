@@ -1,8 +1,10 @@
 package com.weblab.webpos.controller;
 
 
+import com.weblab.webpos.mapper.CategoryMapper;
 import com.weblab.webpos.service.MenuService;
 import com.weblab.webpos.service.StoreService;
+import com.weblab.webpos.service.WareHouseService;
 import com.weblab.webpos.vo.CategoryVO;
 import com.weblab.webpos.vo.MenuVO;
 import com.weblab.webpos.vo.StoreVO;
@@ -24,7 +26,8 @@ import java.util.Map;
 public class Dispatcher {
     @Autowired
     StoreService storeService;
-
+    @Autowired
+    WareHouseService wareHouseService;
     @Autowired
     MenuService menuService;
 
@@ -75,6 +78,8 @@ public class Dispatcher {
         return "salesPage";
     }
 
+
+
     @GetMapping("/pages/menu/{store_id}")
     public String menuPage(@PathVariable String store_id, HttpSession session) {
         String id = store_id;
@@ -89,31 +94,26 @@ public class Dispatcher {
 
 
 
-    /* 포기~!!!
 
-    @RequestMapping(value="/api/menus/{store_id}/{category_name}")
-    public String getMenu(@PathVariable String category_name, @PathVariable String store_id, HttpSession session) {
-        String categoryName = category_name;
-//        System.out.println("categoryName : "+categoryName);
-//        System.out.println("store_id : " + store_id);
 
-        CategoryVO categoryVO = new CategoryVO();
-        categoryVO.setCategory_name(categoryName);
-        categoryVO.setStore_id(Integer.parseInt(store_id));
+    @RequestMapping(value="/api/addCategory/{store_id}", method = RequestMethod.POST)
+    public String addCategory(@PathVariable int store_id, HttpSession session, CategoryVO categoryVO) {
+
+        categoryVO.setStore_id(store_id);
+        menuService.addCategory(categoryVO);
 
         categoryVO = menuService.getCategoryVO(categoryVO);
-//        System.out.println("cateID : " +categoryVO.getCategory_id());
 
-        ArrayList<MenuVO> menuList = menuService.getMenuList(categoryVO);
-        System.out.println("menuList : " + menuList);
-        session.setAttribute("menuList", menuList);
-
+//        ArrayList<MenuVO> menuList = menuService.getMenuList(categoryVO);
+//        System.out.println("menuList : " + menuList);
+//        session.setAttribute("menuList", menuList);
+//
         return "redirect:/pages/menu/"+store_id;
 
 
     }
 
-*/
+
 
 
 

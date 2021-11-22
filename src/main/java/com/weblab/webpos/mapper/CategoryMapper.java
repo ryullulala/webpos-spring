@@ -14,7 +14,7 @@ public interface CategoryMapper {
     @Select("SELECT * FROM \"Category\" where \"store_id\" = #{store_id}")
     ArrayList<CategoryVO> getCategoryList(StoreVO storeVO);
 
-    @Select("SELECT * FROM \"Category\" where \"category_name\" = #{category_name} and \"store_id\" = #{store_id}")
+    @Select("SELECT \"category_id\" FROM \"Category\" where \"category_name\" = #{category_name} and \"store_id\" = #{store_id}")
     CategoryVO getCategoryVO(CategoryVO categoryVO);
 
     @Insert("INSERT INTO \"Category\" VALUES(#{store_id}, category_id_seq.NEXTVAL, #{category_name})")
