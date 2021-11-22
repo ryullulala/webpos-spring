@@ -11,7 +11,7 @@ $(document).ready(function () {
                     var dataHtml = '';
 
                     if (stores.length == 0) { //매장 리스트가 없을때
-                        dataHtml = $('#noResult').text();
+                        dataHtml = $('#noStore').text();
                     } else {
                         var tmp = '';
                         $.each(stores, function (i, v) {

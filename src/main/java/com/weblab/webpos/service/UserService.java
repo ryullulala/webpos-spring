@@ -11,12 +11,14 @@ public class UserService {
     @Autowired
     UserMapper userMapper;
 
+    //로그인
     public UserVO login(UserVO userVO) {
         return userMapper.login(userVO);
     }
 
-//    public void join(UserVO userVO) {
-//        userMapper.join(userVO);
-//    }
+/*    //회원가입
+    public void join(UserVO userVO) {
+        userMapper.join(userVO);
+    }*/
 
 }

@@ -1,7 +1,6 @@
 package com.weblab.webpos.mapper;
 
 import com.weblab.webpos.vo.UserVO;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 

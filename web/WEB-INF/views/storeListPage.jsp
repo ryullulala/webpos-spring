@@ -17,6 +17,7 @@
 
     <title>로그인 후 home 화면</title>
 </head>
+
 <body data-locale="ko" style="">
 <div id="webView">
     <div style="position: absolute; top: 43.525px; left: 87px;">
@@ -73,7 +74,7 @@
 </script>
 
 
-<script type="text/template" id="noData ">
+<script type="text/template" id="noStore">
     <tr>
         <td colspan="100">등록된 매장이 없습니다.</td>
     </tr>

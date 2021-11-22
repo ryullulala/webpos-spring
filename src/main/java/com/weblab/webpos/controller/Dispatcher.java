@@ -3,6 +3,8 @@ package com.weblab.webpos.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,29 +17,54 @@ public class Dispatcher {
     public String homePage() {
         return "home";
     }
+
     //로그인 화면
     @GetMapping("/login")
     public String loginPage() {
         return "loginPage";
     }
+
     //로그아웃
     @GetMapping("/logout")
     public String logoutPage(HttpSession session) {
         session.invalidate();
         return "redirect:/home";
     }
+
     //회원가입 화면
     @GetMapping("/join")
-    public String joinPage() { return "join";}
+    public String joinPage() {
+        return "join";
+    }
+
     //로그인 성공시 화면
     @GetMapping("/stores")
     public String storesPage() {
         return "storeListPage";
     }
+
     //가게 추가 화면
     @GetMapping("/stores/add")
     public String addStorePage() {
         return "addStorePage";
+    }
+
+    //포스 메인
+    @GetMapping("/pos")
+    public ModelAndView posMain(@RequestParam(value = "storeId") String storeId) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("posMain");
+        mav.addObject("storeId", storeId);
+        return mav;
+    }
+
+    //포스 메뉴
+    @GetMapping("/pos/menu")
+    public ModelAndView posMenu(@RequestParam(value = "storeId") String storeId) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("menu");
+        mav.addObject("storeId", storeId);
+        return mav;
     }
 
 
