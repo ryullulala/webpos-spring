@@ -1,4 +1,19 @@
+function join() {
+    let serializedUser = $("#contact_form").serialize()
+    $.ajax({
+        url: '/api/join',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(serializedUser),
+        statusCode: {
+            200: function () {
+                window.location.href = '/login';
+            }
+        }
+    })
+}
 
+/*
 // 아직 구현 덜 함!!
 $(document).ready(function() {
     $('#contact_form').bootstrapValidator({
@@ -111,5 +126,5 @@ $(document).ready(function() {
             $.post($form.attr('action'), $form.serialize(), function(result) {
                 console.log(result);
             }, 'json');
-        });
-});
+    });
+});*/

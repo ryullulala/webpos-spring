@@ -1,52 +1,57 @@
 package com.weblab.webpos.controller;
 
+import com.weblab.webpos.service.MenuService;
 import com.weblab.webpos.service.StoreService;
 import com.weblab.webpos.vo.StoreVO;
 import com.weblab.webpos.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-@Controller
+@RestController
+@RequestMapping("/api")
 public class StoreController {
 
     @Autowired
     StoreService storeService;
+    @Autowired
+    MenuService menuService;
 
-    @RequestMapping("/posMain/{id}")
-    public String posMain(@PathVariable String id, HttpSession session) {
-        StoreVO storeVO = storeService.getStore(id);
-        session.setAttribute("store", storeVO);
-        return "posMain"; }
-
-    @RequestMapping("/store/add")
-    public String addStorePage() {
-        return "addStorePage";
+    //로그인 성공시 유저의 가게 목록 조회
+    @GetMapping("/stores")
+    public ResponseEntity<List<StoreVO>> getStores(HttpSession session) {
+        UserVO userVO = (UserVO) session.getAttribute("user");
+        List<StoreVO> stores = storeService.getStoreList(userVO);
+        return new ResponseEntity<>(stores, HttpStatus.OK);
     }
 
-    @RequestMapping(value="/store", method = RequestMethod.GET)
-    public String store(HttpSession session) {
-        UserVO userVO = (UserVO) session.getAttribute("res");
-        ArrayList<StoreVO> stores = storeService.getStoreList(userVO);
-        session.setAttribute("stores", stores);
-        return "loginedHome";
+    //가게 추가
+    @PostMapping("/stores")
+    public ResponseEntity<Void> addStore(@RequestBody StoreVO storeVO, HttpSession session) {
+        UserVO userVO = (UserVO) session.getAttribute("user");
+        storeVO.setUser_id(userVO.getUser_id());
+        storeService.addStore(storeVO);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value="/store", method = RequestMethod.POST)
-    public String addStore(StoreVO store, HttpSession session) {
-        UserVO userVO = (UserVO) session.getAttribute("res");
-        store.setUser_id(userVO.getUser_id());
-        storeService.addStore(store);
-        return "redirect:/store";
+    //가게 삭제
+    @DeleteMapping("/stores")
+    public ResponseEntity<Void> deleteStore(@RequestBody Map<String, Integer> storeId) {
+        storeService.deleteStore(storeId.get("storeId"));
+        return new ResponseEntity<>(HttpStatus.OK);
     }
-//    @RequestMapping(value="/store", method = RequestMethod.DELETE)
-//    public String addStorePage(StoreVO store) {
-//
-//        return "loginedHome";
-//    }
+
+/*    //선택한 가게의 VO를 가져옴
+    @GetMapping("/store")
+    public ResponseEntity<StoreVO> getStore(@RequestParam("store_id") String storeId) {
+        StoreVO store = storeService.getStore(storeId);
+        return new ResponseEntity<>(store, HttpStatus.OK);
+    }*/
+
+
 }

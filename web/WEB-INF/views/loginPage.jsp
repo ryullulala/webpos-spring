@@ -7,28 +7,25 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-    <head>
-        <title>LOGIN</title>
-        <link rel="stylesheet" href="/static/css/loginPage-style.css" type="text/css">
+<head>
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="/static/css/loginPage-style.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/login.js"></script>
+</head>
+<body>
 
-    </head>
-    <body>
+<div id="webView">
+    <div id="textBar">
+        <div id="signText">SIGN IN</div>
+    </div>
+    <div id="userInfoDiv">
+        <input class="userInfo" type="text" name="user_id" id="user_id" value="아이디" onfocus="this.value= '' " ;>
+        <input class="userInfo" type="password" name="user_pw" id="user_pw" value="비밀번호" onfocus="this.value= '' " ;><br>
+        <input class="buttons" type="button" value="LOGIN" onclick=loginCheck()><br>
+        <input class="buttons" type="button" value="SIGN IN" onclick="location.href='/join'">
+    </div>
 
-        <div id="webView">
-            <div id="textBar" >
-                <div id="signText">SIGN IN</div>
-            </div>
-            <div id="userInfoDiv">
-
-                <form method="post">
-                    <input class="userInfo" type="text" name="user_id" value="아이디" onfocus="this.value= '' "; >
-                    <input class="userInfo" type="password" name="user_pw" value="비밀번호"  onfocus="this.value= '' ";><br>
-                    <input class="buttons" type="submit" value = "LOGIN"  formaction="/login"><br>
-                </form>
-<%--                    GET 방식으로 /join을 접속해야 함으로 임시로 from 밖으로 뺌--%>
-                    <input class="buttons" type="submit" value="SIGN IN" onclick="location.href='/join'">
-            </div>
-
-        </div>
-    </body>
+</div>
+</body>
 </html>

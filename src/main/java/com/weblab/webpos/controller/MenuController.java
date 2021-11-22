@@ -1,24 +1,39 @@
 package com.weblab.webpos.controller;
 
-import com.weblab.webpos.mapper.CategoryMapper;
+import com.weblab.webpos.service.MenuService;
 import com.weblab.webpos.vo.CategoryVO;
-import com.weblab.webpos.vo.StoreVO;
+import com.weblab.webpos.vo.MenuVO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
+import java.util.List;
 
-@Controller
+@RestController
+@RequestMapping("/api")
 public class MenuController {
 
     @Autowired
-    CategoryMapper categoryMapper;
+    MenuService menuService;
 
-    @RequestMapping("/menu")
-    public String Menu(HttpSession session) {
-        StoreVO storeVO = (StoreVO) session.getAttribute("store");
-        CategoryVO categoryVO = categoryMapper.getCategoryList(storeVO);
-        session.setAttribute("categories", categoryVO);
-        return "menu"; }
+    //카테고리 조회
+    @GetMapping("/categories")
+    public ResponseEntity<List<CategoryVO>> getCategories(@RequestParam(value = "storeId") String storeId) {
+        List<CategoryVO> categories = menuService.getCategories(storeId);
+        return new ResponseEntity<>(categories, HttpStatus.OK);
+    }
+
+    @PostMapping("/categories")
+    public ResponseEntity<Void> addCategory(@RequestBody CategoryVO categoryVO) {
+        menuService.addCategory(categoryVO);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    //메뉴 조회
+    @GetMapping("/menu")
+    public ResponseEntity<List<MenuVO>> getMenu(@RequestParam(value = "categoryId") String categoryId) {
+        List<MenuVO> menu = menuService.getMenu(categoryId);
+        return new ResponseEntity<>(menu, HttpStatus.OK);
+    }
 }

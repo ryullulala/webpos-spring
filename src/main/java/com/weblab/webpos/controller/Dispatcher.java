@@ -1,58 +1,99 @@
 package com.weblab.webpos.controller;
 
 
-import com.weblab.webpos.vo.CategoryVO;
-import com.weblab.webpos.vo.UserVO;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 
 @Controller
 public class Dispatcher {
 
-    @RequestMapping("/")
-    public String Index() {
-        return "index";
+    //메인 화면
+    @GetMapping("/home")
+    public String homePage() {
+        return "home";
     }
 
-    @RequestMapping("/menu")
-    public String Menu(HttpServletRequest request) {
-        HttpSession session = request.getSession();
-        return "menu"; }
+    //로그인 화면
+    @GetMapping("/login")
+    public String loginPage() {
+        return "loginPage";
+    }
 
-    @RequestMapping(value = "/posMain/{id}",method = RequestMethod.GET)
-    public String posMain(HttpServletRequest request, @PathVariable int id) {
-        HttpSession session = request.getSession();
-        session.setAttribute("id",id);
-        return "posMain"; }
+    //로그아웃
+    @GetMapping("/logout")
+    public String logoutPage(HttpSession session) {
+        session.invalidate();
+        return "redirect:/home";
+    }
 
-    @RequestMapping("/groceryMain")
-    public String groceryMain() { return "groceryMain"; }
+    //회원가입 화면
+    @GetMapping("/join")
+    public String joinPage() {
+        return "join";
+    }
 
+    //로그인 성공시 화면
+    @GetMapping("/stores")
+    public String storesPage() {
+        return "storeListPage";
+    }
 
-        
+    //가게 추가 화면
+    @GetMapping("/stores/add")
+    public String addStorePage() {
+        return "addStorePage";
+    }
 
+    //포스 메인
+    @GetMapping("/pos")
+    public ModelAndView posMain(@RequestParam(value = "storeId") String storeId) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("posMain");
+        mav.addObject("storeId", storeId);
+        return mav;
+    }
 
+    //메뉴 페이지
+    @GetMapping("/pos/menu")
+    public ModelAndView posMenu(@RequestParam(value = "storeId") String storeId) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("menu");
+        mav.addObject("storeId", storeId);
+        return mav;
+    }
+    //식자재 관리
+    @GetMapping("/groceries")
+    public String groceryMain() {
+        return "groceryPage";
+    }
 
-    @RequestMapping("/salesPage")
-    public String salesPage() { return "salesPage"; }
+    //매출관리 페이지
+    @GetMapping("/sales")
+    public String salesPage() {
+        return "salesPage";
+    }
 
+    //포스메인에서 투두 상세보기하면 테이블 띄워주는 거 --> 데이터 반영하는 걸로 고쳐야함
+    @GetMapping("/test2")
+    public String test() {
+        return "test2";
+    }
 
-//포스메인에서 투두 상세보기하면 테이블 띄워주는 거 --> 데이터 반영하는 걸로 고쳐야함
-    @RequestMapping("/test2")
-    public String test() { return "test2"; }
+    @GetMapping("/dragTest")
+    public String dragTest() {
+        return "dragTest";
+    }
 
-    @RequestMapping("/dragTest")
-    public String dragTest() { return "dragTest"; }
+    @GetMapping("/addCatePage")
+    public String addCatePage() {
+        return "addCatePage";
+    }
 
-    @RequestMapping("/addCatePage")
-    public String addCatePage() { return "addCatePage"; }
 
 }
 
